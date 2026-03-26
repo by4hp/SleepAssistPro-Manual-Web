@@ -1,4 +1,0 @@
-interface:
-  display_name: "Markdown To Manual Page"
-  short_description: "把 Markdown 手稿整理成当前手册网页页面结构"
-  default_prompt: "Use $md-to-manual-page to turn this Markdown draft into the current manual web page structure."
