@@ -1,47 +1,67 @@
-# v0-app
+# SleepAssistPro Manual Web
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [v0](https://v0.app).
+[中文](./README.zh-CN.md) | **English**
 
-## Built with v0
+## Overview
 
-This repository is linked to a [v0](https://v0.app) project. You can continue developing by visiting the link below -- start new chats to make changes, and v0 will push commits directly to this repo. Every merge to `main` will automatically deploy.
+This is the `SleepAssistPro` manual website, built with `Next.js`.
 
-[Continue working on v0 →](https://v0.app/chat/projects/prj_2eWnnpV5lkmKW4imOkZDQt9GxWku)
+The site is used to:
 
-## Getting Started
+- present the Chinese user manual
+- organize onboarding, daily usage, settings, account security, and troubleshooting by chapter
+- pair screenshots with in-app instructions and step-by-step guidance
 
-First, run the development server:
+## Local Development
+
+Run the development server from the project root:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```text
+http://localhost:3000
+```
 
-## Manual Assets
+## Useful Commands
 
-Manual screenshots default to local files under `public/manual`, so local preview works without extra setup.
+```bash
+pnpm dev
+pnpm build
+pnpm start
+npx tsc --noEmit
+```
 
-If you later move images to external hosting, create a `.env.local` file and set:
+## Asset Strategy
+
+By default, manual screenshots are loaded from the local `public/manual` directory, so local preview works without any extra setup.
+
+If screenshots are moved to external hosting later, add this to `.env.local`:
 
 ```bash
 NEXT_PUBLIC_MANUAL_ASSET_BASE_URL=https://your-asset-host
 ```
 
-When this variable is set, any asset path that starts with `/manual/` will load from that host instead of local `public/manual`.
+When this variable is set, any asset path starting with `/manual/` will be resolved against that external host.
 
-## Learn More
+If the variable is not set, the app will continue using local assets.
 
-To learn more, take a look at the following resources:
+## Deployment
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-- [v0 Documentation](https://v0.app/docs) - learn about v0 and how to use it.
+This project can be deployed directly on `Vercel`.
 
-<a href="https://v0.app/chat/api/kiro/clone/by4hp/v0-app" alt="Open in Kiro"><img src="https://pdgvvgmkdvyeydso.public.blob.vercel-storage.com/open%20in%20kiro.svg?sanitize=true" /></a>
+If production images are hosted externally, make sure to also configure this environment variable in Vercel:
+
+```bash
+NEXT_PUBLIC_MANUAL_ASSET_BASE_URL
+```
+
+## Stack
+
+- Next.js 16
+- React 19
+- TypeScript
+- Tailwind CSS
