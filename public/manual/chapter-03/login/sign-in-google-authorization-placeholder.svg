@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="390" height="844" viewBox="0 0 390 844" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="20" y1="20" x2="370" y2="824" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#243A52"/>
+      <stop offset="1" stop-color="#0A1826"/>
+    </linearGradient>
+  </defs>
+  <rect width="390" height="844" rx="28" fill="url(#bg)"/>
+  <rect x="32" y="96" width="326" height="652" rx="28" fill="#102131" stroke="#66BEE3" stroke-width="2"/>
+  <text x="195" y="184" text-anchor="middle" fill="#BEEBFF" font-family="Arial, sans-serif" font-size="18">SCREENSHOT PLACEHOLDER</text>
+  <text x="195" y="238" text-anchor="middle" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="28" font-weight="700">Google Authorization</text>
+  <text x="195" y="300" text-anchor="middle" fill="#9FC3D8" font-family="Arial, sans-serif" font-size="16">Replace with the system Google sign-in</text>
+  <text x="195" y="328" text-anchor="middle" fill="#9FC3D8" font-family="Arial, sans-serif" font-size="16">or authorization confirmation screen.</text>
+  <rect x="72" y="392" width="246" height="128" rx="20" fill="#14344A" stroke="#66BEE3" stroke-dasharray="8 8"/>
+  <text x="195" y="446" text-anchor="middle" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="20">Expected content</text>
+  <text x="195" y="480" text-anchor="middle" fill="#9FC3D8" font-family="Arial, sans-serif" font-size="15">Account chooser or consent dialog</text>
+  <text x="195" y="506" text-anchor="middle" fill="#9FC3D8" font-family="Arial, sans-serif" font-size="15">followed by return to SleepAssist</text>
+  <text x="195" y="624" text-anchor="middle" fill="#66BEE3" font-family="Arial, sans-serif" font-size="14">Temporary placeholder for manual layout review</text>
+</svg>
