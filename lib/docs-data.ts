@@ -448,12 +448,12 @@ export const docsData: DocSection[] = [
           {
             id: 'edit-personal-information',
             title: '6.1.1 修改个人信息',
-            content: `1. 在 Settings 页面点击 Account & Security。\n2. 点击 Personal Information，进入个人信息页面。\n\n![Personal Information 页面](/manual/chapter-06/account-security/personal-information-form.png)\n\n3. 修改需要更新的内容。\n4. 点击页面底部的 Confirm。\n\n如果您要同时修改单位和身体数据，建议先调整 Units，再继续填写后面的项目。这样后面的身高、体重等内容会更容易核对。`,
+            content: `1. 先进入 Settings，然后点击 Account & Security。\n\n![Account & Security 入口](/manual/chapter-06/settings-home/settings-home-overview.png)\n\n2. 点击 Personal Information，进入个人信息页面。\n\n![Personal Information 页面](/manual/chapter-06/account-security/personal-information-form.png)\n\n3. 修改需要更新的内容。\n4. 点击页面底部的 Confirm。\n\n如果您要同时修改单位和身体数据，建议先调整 Units，再继续填写后面的项目。这样后面的身高、体重等内容会更容易核对。`,
           },
           {
             id: 'edit-language',
             title: '6.1.2 修改语言',
-            content: `如果您只想切换 App 的显示语言，也是在 Personal Information 页面完成。\n\n1. 在 Settings 页面点击 Account & Security。\n2. 点击 Personal Information，进入个人信息页面。\n\n![Personal Information 页面](/manual/chapter-06/account-security/personal-information-form.png)\n\n3. 找到 Language。\n4. 选择您要使用的语言。\n5. 点击页面底部的 Confirm。`,
+            content: `如果您只想切换 App 的显示语言，也是在 Personal Information 页面完成。\n\n1. 先进入 Settings，然后点击 Account & Security。\n\n![Account & Security 入口](/manual/chapter-06/settings-home/settings-home-overview.png)\n\n2. 点击 Personal Information，进入个人信息页面。\n\n![Personal Information 页面](/manual/chapter-06/account-security/personal-information-form.png)\n\n3. 找到 Language。\n4. 选择您要使用的语言。\n5. 点击页面底部的 Confirm。`,
           },
         ],
       },
@@ -465,29 +465,29 @@ export const docsData: DocSection[] = [
           {
             id: 'open-data-sharing-settings',
             title: '6.2.1 进入 Data & Sharing Settings',
-            content: `在 Account & Security 页面点击 Data & Sharing Settings，进入数据与分享设置页面。\n\n![Data & Sharing Settings 页面](/manual/chapter-06/account-security/data-sharing-settings-overview.png)`,
+            content: `1. 先进入 Settings，然后点击 Account & Security。\n\n![Account & Security 入口](/manual/chapter-06/settings-home/settings-home-overview.png)\n\n2. 在 Account & Security 页面点击 Data & Sharing Settings，进入数据与分享设置页面。\n\n![Data & Sharing Settings 页面](/manual/chapter-06/account-security/data-sharing-settings-overview.png)`,
           },
           {
             id: 'delete-sleep-data',
             title: '6.2.2 删除睡眠数据',
-            content: `如果您只想删除某些日期的睡眠记录，可以使用 Delete Sleep Data。\n\n1. 点击 Delete Sleep Data，页面会先让您选择要删除的日期。\n\n![删除睡眠数据日期选择](/manual/chapter-06/account-security/delete-sleep-data-calendar.png)\n\n2. 选择要删除的日期后，再进入确认弹窗继续操作。\n\n![删除睡眠数据确认弹窗](/manual/chapter-06/account-security/delete-sleep-data-popup.png)`,
+            content: `如果您只想删除某些日期的睡眠记录，可以使用 Delete Sleep Data。\n\n1. 先进入 Settings，然后点击 Account & Security。\n\n![Account & Security 入口](/manual/chapter-06/settings-home/settings-home-overview.png)\n\n2. 点击 Data & Sharing Settings。\n3. 点击 Delete Sleep Data，页面会先让您选择要删除的日期。\n\n![删除睡眠数据日期选择](/manual/chapter-06/account-security/delete-sleep-data-calendar.png)\n\n4. 选择要删除的日期后，再进入确认弹窗继续操作。\n\n![删除睡眠数据确认弹窗](/manual/chapter-06/account-security/delete-sleep-data-popup.png)`,
           },
           {
             id: 'download-sleep-data',
             title: '6.2.3 下载睡眠数据',
-            content: `如果您想自己保存一份睡眠记录，点击 Download Sleep Data，再按页面提示继续。\n\n![Download Sleep Data 页面](/manual/chapter-06/account-security/date-download.png)`,
+            content: `如果您想自己保存一份睡眠记录，可以按下面的路径进入。\n\n1. 先进入 Settings，然后点击 Account & Security。\n\n![Account & Security 入口](/manual/chapter-06/settings-home/settings-home-overview.png)\n\n2. 点击 Data & Sharing Settings。\n3. 点击 Download Sleep Data，再按页面提示继续。\n\n![Download Sleep Data 页面](/manual/chapter-06/account-security/date-download.png)`,
           },
           {
             id: 'sharing-settings',
             title: '6.2.4 查看与管理分享',
-            content: `如果您要查看别人分享给您的报告，或把自己的睡眠报告分享给别人，点击 Sharing Settings。\n\n如果您进入 Sharing Settings，通常会看到下面这个页面。您可以在这里查看分享给您的内容，也可以管理自己的分享操作。\n\n![Sharing Settings 页面](/manual/chapter-06/account-security/sharing-settings.png)`,
+            content: `如果您要查看别人分享给您的报告，或把自己的睡眠报告分享给别人，可以按下面的路径进入。\n\n1. 先进入 Settings，然后点击 Account & Security。\n\n![Account & Security 入口](/manual/chapter-06/settings-home/settings-home-overview.png)\n\n2. 点击 Data & Sharing Settings。\n3. 点击 Sharing Settings。\n\n如果您进入 Sharing Settings，通常会看到下面这个页面。您可以在这里查看分享给您的内容，也可以管理自己的分享操作。\n\n![Sharing Settings 页面](/manual/chapter-06/account-security/sharing-settings.png)`,
           },
         ],
       },
       {
         id: 'faceid',
         title: '6.3 FaceID 登录验证',
-        content: `如果您的设备支持 FaceID，您可以在 Account & Security 打开 Sign In With FaceID。打开后，后续登录时会先进行 FaceID 验证，验证通过后才能进入 App。\n\n1. 进入 Account & Security。\n2. 找到 Sign In With FaceID。\n3. 按页面提示打开这项设置。\n\n![FaceID 登录验证](/manual/chapter-06/account-security/faceid.png)\n\n4. 如果系统请求 FaceID 权限，按提示允许，或前往手机系统设置完成授权。\n5. 下次登录时，先完成 FaceID 验证，再进入 App。`,
+        content: `如果您的设备支持 FaceID，您可以在 Account & Security 打开 Sign In With FaceID。打开后，后续登录时会先进行 FaceID 验证，验证通过后才能进入 App。\n\n1. 先进入 Settings，然后点击 Account & Security。\n\n![Account & Security 入口](/manual/chapter-06/settings-home/settings-home-overview.png)\n\n2. 找到 Sign In With FaceID。\n3. 按页面提示打开这项设置。\n\n![FaceID 登录验证](/manual/chapter-06/account-security/faceid.png)\n\n4. 如果系统请求 FaceID 权限，按提示允许，或前往手机系统设置完成授权。\n5. 下次登录时，先完成 FaceID 验证，再进入 App。`,
       },
       {
         id: 'password',
@@ -497,12 +497,12 @@ export const docsData: DocSection[] = [
           {
             id: 'reset-password-known',
             title: '6.4.1 还记得当前密码时',
-            content: `如果您还记得当前密码，请在 Account & Security 里直接修改。\n\n1. 点击 Reset Your Password，进入 App 内修改密码的页面。\n\n![Reset Your Password 页面](/manual/chapter-06/account-security/reset-password-form.png)\n\n2. 在 Current Password 输入当前密码。\n3. 在 New Password 输入新密码。\n4. 在 Confirm New Password 再输入一次新密码。\n5. 点击 Reset Password。\n\n页面上的新密码提示为至少 6 位。修改完成后，下次登录请使用新密码。`,
+            content: `如果您还记得当前密码，请在 Account & Security 里直接修改。\n\n1. 先进入 Settings，然后点击 Account & Security。\n\n![Account & Security 入口](/manual/chapter-06/settings-home/settings-home-overview.png)\n\n2. 点击 Reset Your Password，进入 App 内修改密码的页面。\n\n![Reset Your Password 页面](/manual/chapter-06/account-security/reset-password-form.png)\n\n3. 在 Current Password 输入当前密码。\n4. 在 New Password 输入新密码。\n5. 在 Confirm New Password 再输入一次新密码。\n6. 点击 Reset Password。\n\n页面上的新密码提示为至少 6 位。修改完成后，下次登录请使用新密码。`,
           },
           {
             id: 'reset-password-forgotten',
             title: '6.4.2 已经忘记密码时',
-            content: `如果您已经忘记当前密码，请不要继续反复尝试旧密码，直接使用邮箱找回会更快。\n\n1. 点击页面底部的 Reset via email。\n2. 在验证码页输入邮件里的验证码。\n\n![密码重置验证码页](/manual/chapter-06/account-security/password-reset-code-entry-filled.png)\n\n3. 在 Create a new password 页面重新设置密码。\n\n![设置新密码页面](/manual/chapter-06/account-security/password-reset-new-password-form.png)\n\n4. 设置完成后，系统通常会回到 Sign In 页面，再用新密码登录。\n\n![密码重置成功后返回登录页](/manual/chapter-06/account-security/password-reset-success-sign-in.png)`,
+            content: `如果您已经忘记当前密码，请不要继续反复尝试旧密码，直接使用邮箱找回会更快。\n\n1. 先进入 Settings，然后点击 Account & Security。\n\n![Account & Security 入口](/manual/chapter-06/settings-home/settings-home-overview.png)\n\n2. 点击页面底部的 Reset via email。\n3. 在验证码页输入邮件里的验证码。\n\n![密码重置验证码页](/manual/chapter-06/account-security/password-reset-code-entry-filled.png)\n\n4. 在 Create a new password 页面重新设置密码。\n\n![设置新密码页面](/manual/chapter-06/account-security/password-reset-new-password-form.png)\n\n5. 设置完成后，系统通常会回到 Sign In 页面，再用新密码登录。\n\n![密码重置成功后返回登录页](/manual/chapter-06/account-security/password-reset-success-sign-in.png)`,
           },
         ],
       },
@@ -514,12 +514,12 @@ export const docsData: DocSection[] = [
           {
             id: 'delete-account-checklist',
             title: '6.5.1 删除前先看这些情况',
-            content: `在您确认删除前，建议先看下面几项：\n\n- 如果您还想保留自己的睡眠数据，先打开 Download Sleep Data。\n- 如果您只是想删除部分睡眠数据，先打开 Delete Sleep Data。\n- 如果您只是暂时不想继续使用 App，退出登录通常比删除账号更合适。\n- 如果您只是想换密码或打开 FaceID，优先使用 Reset Your Password 或 Sign In With FaceID，不要直接删除账号。`,
+            content: `1. 先进入 Settings，然后点击 Account & Security。\n\n![Account & Security 入口](/manual/chapter-06/settings-home/settings-home-overview.png)\n\n2. 在您确认删除前，建议先看下面几项：\n\n- 如果您还想保留自己的睡眠数据，先打开 Download Sleep Data。\n- 如果您只是想删除部分睡眠数据，先打开 Delete Sleep Data。\n- 如果您只是暂时不想继续使用 App，退出登录通常比删除账号更合适。\n- 如果您只是想换密码或打开 FaceID，优先使用 Reset Your Password 或 Sign In With FaceID，不要直接删除账号。`,
           },
           {
             id: 'delete-account-confirm',
             title: '6.5.2 确认删除时',
-            content: `如果您确认要删除账号，再按下面的步骤操作：\n\n1. 进入 Account & Security。\n2. 找到页面底部的 Delete Your Account。\n3. 再次阅读页面提示，确认页面内容与您的预期一致。\n\n![删除账号确认页](/manual/chapter-06/account-security/delete-account-confirmation.png)\n\n4. 确认无误后，再按页面提示完成删除。`,
+            content: `如果您确认要删除账号，再按下面的步骤操作：\n\n1. 先进入 Settings，然后点击 Account & Security。\n\n![Account & Security 入口](/manual/chapter-06/settings-home/settings-home-overview.png)\n\n2. 找到页面底部的 Delete Your Account。\n3. 再次阅读页面提示，确认页面内容与您的预期一致。\n\n![删除账号确认页](/manual/chapter-06/account-security/delete-account-confirmation.png)\n\n4. 确认无误后，再按页面提示完成删除。`,
           },
         ],
       },
