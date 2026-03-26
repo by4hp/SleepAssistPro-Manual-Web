@@ -5,8 +5,7 @@ import { DocsSidebar } from "@/components/docs/docs-sidebar"
 import { DocsContent } from "@/components/docs/docs-content"
 import { DocsToc } from "@/components/docs/docs-toc"
 import { DocsHeader } from "@/components/docs/docs-header"
-
-type Language = "zh" | "en"
+import type { Language } from "@/lib/docs-data"
 
 export default function DocsPage() {
   const [activeSection, setActiveSection] = useState("quick-start")
@@ -33,8 +32,8 @@ export default function DocsPage() {
     document.documentElement.classList.toggle("dark")
   }
 
-  const handleToggleLanguage = () => {
-    setLanguage((current) => (current === "zh" ? "en" : "zh"))
+  const handleSelectLanguage = (nextLanguage: Language) => {
+    setLanguage(nextLanguage)
   }
 
   return (
@@ -45,7 +44,7 @@ export default function DocsPage() {
         isDark={isDark}
         onToggleTheme={handleToggleTheme}
         language={language}
-        onToggleLanguage={handleToggleLanguage}
+        onSelectLanguage={handleSelectLanguage}
         mobileMenuOpen={mobileMenuOpen}
         onToggleMobileMenu={() => setMobileMenuOpen((open) => !open)}
       />
@@ -60,7 +59,7 @@ export default function DocsPage() {
           isDark={isDark}
           onToggleTheme={handleToggleTheme}
           language={language}
-          onToggleLanguage={handleToggleLanguage}
+          onSelectLanguage={handleSelectLanguage}
           mobileOpen={mobileMenuOpen}
           onMobileOpenChange={setMobileMenuOpen}
         />
@@ -71,11 +70,13 @@ export default function DocsPage() {
             activeSection={activeSection}
             activeItemId={activeItemId}
             onNavigate={handleNavigate}
+            language={language}
           />
           <DocsToc
             activeSection={activeSection}
             activeItemId={activeItemId}
             onNavigate={handleNavigate}
+            language={language}
           />
         </main>
       </div>

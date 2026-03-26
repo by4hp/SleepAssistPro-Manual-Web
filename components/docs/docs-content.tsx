@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react"
 import { ArrowRight, ArrowUp, ArrowLeft, ChevronRight, Download } from "lucide-react"
 import { cn } from "@/lib/utils"
-import { docsData, type DocItem, type DocSection } from "@/lib/docs-data"
+import { getDocsData, type DocItem, type DocSection, type Language } from "@/lib/docs-data"
 import { resolveManualAssetSrc } from "@/lib/manual-assets"
 import { Button } from "@/components/ui/button"
 
@@ -11,6 +11,7 @@ interface DocsContentProps {
   activeSection: string
   activeItemId: string
   onNavigate: (sectionId: string, itemId?: string) => void
+  language: Language
 }
 
 // Render inline bold (**text**) within a string
@@ -188,13 +189,13 @@ function renderContent(
           className="my-4 grid gap-4 md:mx-auto md:max-w-[60%] md:grid-cols-2"
         >
           {renderImageCard({
-            alt: captionA || "截图 1",
+            alt: captionA || "Screenshot 1",
             src: srcA,
             caption: captionA || undefined,
             compact: true,
           })}
           {renderImageCard({
-            alt: captionB || "截图 2",
+            alt: captionB || "Screenshot 2",
             src: srcB,
             caption: captionB || undefined,
             compact: true,
@@ -265,7 +266,7 @@ interface FlatEntry {
   item: DocItem
 }
 
-function buildFlatList(): FlatEntry[] {
+function buildFlatList(docsData: DocSection[]): FlatEntry[] {
   const list: FlatEntry[] = []
   for (const section of docsData) {
     for (const item of section.items) {
@@ -275,9 +276,7 @@ function buildFlatList(): FlatEntry[] {
   return list
 }
 
-const flatList = buildFlatList()
-
-function findEntry(sectionId: string, itemId: string): FlatEntry | undefined {
+function findEntry(flatList: FlatEntry[], sectionId: string, itemId: string): FlatEntry | undefined {
   return flatList.find(
     (entry) =>
       entry.sectionId === sectionId &&
@@ -289,9 +288,13 @@ function findEntry(sectionId: string, itemId: string): FlatEntry | undefined {
 function QuickStartLanding({
   section,
   onNavigate,
+  docsData,
+  language,
 }: {
   section: DocSection
   onNavigate: DocsContentProps['onNavigate']
+  docsData: DocSection[]
+  language: Language
 }) {
   const [expandedSections, setExpandedSections] = useState<string[]>(["quick-start"])
 
@@ -310,14 +313,20 @@ function QuickStartLanding({
       </header>
 
       <section className="mb-10">
-        <h2 className="mb-3 text-xl font-semibold text-foreground">欢迎使用 SleepAssistPro</h2>
+        <h2 className="mb-3 text-xl font-semibold text-foreground">
+          {language === "zh" ? "欢迎使用 SleepAssistPro" : "Welcome to SleepAssistPro"}
+        </h2>
         <p className="max-w-2xl text-[0.82rem] font-medium leading-6 text-muted-foreground/90 sm:text-[0.88rem] sm:leading-7">
-          这份手册适合第一次使用和日常使用 SleepAssistPro 的用户；如果您是第一次使用，建议按照顺序阅读，如果遇到问题，也可以跳转到对应的章节查看。
+          {language === "zh"
+            ? "这份手册适合第一次使用和日常使用 SleepAssistPro 的用户；如果您是第一次使用，建议按照顺序阅读，如果遇到问题，也可以跳转到对应的章节查看。"
+            : "This manual is designed for both first-time and everyday SleepAssistPro users. If you are new, reading in order is the easiest path. If you run into a problem, you can also jump straight to the chapter that matches it."}
         </p>
       </section>
 
       <section className="mb-10">
-        <h2 className="mb-4 text-base font-semibold text-foreground lg:text-lg">章节入口</h2>
+        <h2 className="mb-4 text-base font-semibold text-foreground lg:text-lg">
+          {language === "zh" ? "章节入口" : "Chapter Shortcuts"}
+        </h2>
         <div className="space-y-3">
           {docsData.map((sectionItem) => (
             <div
@@ -352,7 +361,9 @@ function QuickStartLanding({
                       onClick={() => onNavigate(sectionItem.id)}
                       className="pressable group flex w-full items-center justify-between rounded-lg bg-primary/6 px-3 py-2.5 text-left transition-colors hover:bg-primary/10"
                     >
-                      <span className="text-sm font-medium text-foreground">进入本章</span>
+                      <span className="text-sm font-medium text-foreground">
+                        {language === "zh" ? "进入本章" : "Open Chapter"}
+                      </span>
                       <ArrowRight className="h-4 w-4 text-muted-foreground transition-transform group-hover:translate-x-1 group-hover:text-primary" />
                     </button>
                     {sectionItem.items.map((item) => (
@@ -408,14 +419,16 @@ function SectionOverview({ section, onNavigate }: { section: DocSection; onNavig
 // ── Single item page ──────────────────────────────────────────────────────────
 function ItemPage({
   entry,
-  section,
   activeChildId,
   onNavigate,
+  language,
+  flatList,
 }: {
   entry: FlatEntry
-  section: DocSection
   activeChildId: string | null
   onNavigate: DocsContentProps['onNavigate']
+  language: Language
+  flatList: FlatEntry[]
 }) {
   const { item } = entry
   const idx = flatList.indexOf(entry)
@@ -451,7 +464,9 @@ function ItemPage({
       {item.children && item.children.length > 0 && (
         <section className="mb-8 lg:hidden">
           <div className="rounded-2xl border border-border/50 bg-card/60 p-4 backdrop-blur-sm">
-            <h2 className="mb-3 text-sm font-semibold text-foreground">本节目录</h2>
+            <h2 className="mb-3 text-sm font-semibold text-foreground">
+              {language === "zh" ? "本节目录" : "In This Section"}
+            </h2>
             <div className="space-y-2">
               {item.children.map((child) => (
                 <button
@@ -496,7 +511,7 @@ function ItemPage({
             className="pressable group flex flex-col items-start rounded-xl border border-border/50 bg-card/60 backdrop-blur-sm px-4 py-3.5 text-left transition-all hover:border-primary/50 hover:bg-primary/5 hover:shadow-sm sm:max-w-[45%]"
           >
             <span className="mb-1 flex items-center gap-1 text-xs text-muted-foreground">
-              <ArrowLeft className="h-3 w-3" /> 上一页
+              <ArrowLeft className="h-3 w-3" /> {language === "zh" ? "上一页" : "Previous"}
             </span>
             <span className="text-sm font-medium text-foreground group-hover:text-primary">
               {prev.item.title}
@@ -510,7 +525,7 @@ function ItemPage({
             className="pressable group flex flex-col items-end rounded-xl border border-border/50 bg-card/60 backdrop-blur-sm px-4 py-3.5 text-right transition-all hover:border-primary/50 hover:bg-primary/5 hover:shadow-sm sm:max-w-[45%]"
           >
             <span className="mb-1 flex items-center gap-1 text-xs text-muted-foreground">
-              下一页 <ArrowRight className="h-3 w-3" />
+              {language === "zh" ? "下一页" : "Next"} <ArrowRight className="h-3 w-3" />
             </span>
             <span className="text-sm font-medium text-foreground group-hover:text-primary">
               {next.item.title}
@@ -523,12 +538,14 @@ function ItemPage({
 }
 
 // ── Main export ───────────────────────────────────────────────────────────────
-export function DocsContent({ activeSection, activeItemId, onNavigate }: DocsContentProps) {
+export function DocsContent({ activeSection, activeItemId, onNavigate, language }: DocsContentProps) {
   const containerRef = useRef<HTMLDivElement>(null)
   const [showBackToTop, setShowBackToTop] = useState(false)
+  const docsData = getDocsData(language)
+  const flatList = buildFlatList(docsData)
 
   const currentSection = docsData.find(s => s.id === activeSection)
-  const activeEntry = activeItemId ? findEntry(activeSection, activeItemId) : undefined
+  const activeEntry = activeItemId ? findEntry(flatList, activeSection, activeItemId) : undefined
   const activeChildId =
     activeEntry?.item.children?.find((child) => child.id === activeItemId)?.id ?? null
 
@@ -560,7 +577,12 @@ export function DocsContent({ activeSection, activeItemId, onNavigate }: DocsCon
 
           {/* Quick-start landing (section page, no item selected) */}
           {currentSection && activeSection === 'quick-start' && !activeItemId && (
-            <QuickStartLanding section={currentSection} onNavigate={onNavigate} />
+            <QuickStartLanding
+              section={currentSection}
+              onNavigate={onNavigate}
+              docsData={docsData}
+              language={language}
+            />
           )}
 
           {/* Section overview when no item is selected */}
@@ -572,9 +594,10 @@ export function DocsContent({ activeSection, activeItemId, onNavigate }: DocsCon
           {currentSection && activeEntry && (
             <ItemPage
               entry={activeEntry}
-              section={currentSection}
               activeChildId={activeChildId}
               onNavigate={onNavigate}
+              language={language}
+              flatList={flatList}
             />
           )}
 
@@ -592,7 +615,7 @@ export function DocsContent({ activeSection, activeItemId, onNavigate }: DocsCon
         onClick={() => containerRef.current?.scrollTo({ top: 0, behavior: 'smooth' })}
       >
         <ArrowUp className="h-4 w-4" />
-        <span className="sr-only">返回顶部</span>
+        <span className="sr-only">{language === "zh" ? "返回顶部" : "Back to top"}</span>
       </Button>
     </div>
   )

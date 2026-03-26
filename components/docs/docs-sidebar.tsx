@@ -1,11 +1,12 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { ChevronRight, Search, Moon, Sun, Languages } from "lucide-react"
+import { ChevronRight, Search, Moon, Sun } from "lucide-react"
 import { cn } from "@/lib/utils"
-import { docsData } from "@/lib/docs-data"
+import { getDocsData, type Language } from "@/lib/docs-data"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import { DocsLanguageMenu } from "@/components/docs/docs-language-menu"
 
 interface DocsSidebarProps {
   activeSection: string
@@ -13,8 +14,8 @@ interface DocsSidebarProps {
   onNavigate: (sectionId: string, itemId?: string) => void
   isDark?: boolean
   onToggleTheme?: () => void
-  language?: "zh" | "en"
-  onToggleLanguage?: () => void
+  language?: Language
+  onSelectLanguage?: (language: Language) => void
   mobileOpen?: boolean
   onMobileOpenChange?: (open: boolean) => void
 }
@@ -26,12 +27,13 @@ function SidebarContent({
   isDark,
   onToggleTheme,
   language = "zh",
-  onToggleLanguage,
+  onSelectLanguage,
   onClose,
   isMobile = false,
 }: DocsSidebarProps & { onClose?: () => void; isMobile?: boolean }) {
   const [expandedSections, setExpandedSections] = useState<string[]>([activeSection])
   const [searchQuery, setSearchQuery] = useState("")
+  const docsData = getDocsData(language)
 
   const copy = language === "zh"
     ? {
@@ -40,7 +42,6 @@ function SidebarContent({
         searchHint: "输入关键词后直接筛选目录",
         enterChapter: "进入本章",
         toggleTheme: "切换主题",
-        toggleLanguage: "切换到英文",
       }
     : {
         search: "Search docs...",
@@ -48,7 +49,6 @@ function SidebarContent({
         searchHint: "Type to filter the menu",
         enterChapter: "Open chapter",
         toggleTheme: "Toggle theme",
-        toggleLanguage: "Switch to Chinese",
       }
 
   useEffect(() => {
@@ -175,7 +175,15 @@ function SidebarContent({
                     </button>
                     <button
                       type="button"
-                      aria-label={isSectionExpanded ? `收起 ${section.title}` : `展开 ${section.title}`}
+                      aria-label={
+                        language === "zh"
+                          ? isSectionExpanded
+                            ? `收起 ${section.title}`
+                            : `展开 ${section.title}`
+                          : isSectionExpanded
+                            ? `Collapse ${section.title}`
+                            : `Expand ${section.title}`
+                      }
                       aria-expanded={isSectionExpanded}
                       onClick={() => toggleSection(section.id)}
                       className={cn(
@@ -239,27 +247,31 @@ function SidebarContent({
       {/* Footer */}
       <div className="shrink-0 border-t border-border/50 px-4 py-3">
         <div className="flex items-center justify-between gap-3">
-          <p className="text-xs text-muted-foreground">版本 1.0.0 · © 2026 SleepAssistPro</p>
-          <div className="flex items-center gap-2">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={onToggleTheme}
-              className="h-9 w-9"
-              aria-label={copy.toggleTheme}
-            >
-              {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-            </Button>
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={onToggleLanguage}
-              className="h-9 w-9"
-              aria-label={copy.toggleLanguage}
-            >
-              <Languages className="h-4 w-4" />
-            </Button>
-          </div>
+          <p className="text-xs text-muted-foreground">
+            {language === "zh" ? "版本 1.0.0" : "Version 1.0.0"} · © 2026 SleepAssistPro
+          </p>
+          {isMobile && (
+            <div className="flex items-center gap-2">
+              <DocsLanguageMenu
+                language={language}
+                uiLanguage={language}
+                onSelectLanguage={(nextLanguage) => onSelectLanguage?.(nextLanguage)}
+                onAfterSelect={onClose}
+                variant="ghost"
+                size="sm"
+                className="px-2"
+              />
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={onToggleTheme}
+                className="h-9 w-9"
+                aria-label={copy.toggleTheme}
+              >
+                {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+              </Button>
+            </div>
+          )}
         </div>
       </div>
     </div>

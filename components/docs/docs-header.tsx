@@ -12,14 +12,15 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
-import { docsData, type DocItem, type DocSection } from "@/lib/docs-data"
+import { getDocsData, type DocItem, type DocSection, type Language } from "@/lib/docs-data"
+import { DocsLanguageMenu } from "@/components/docs/docs-language-menu"
 
 interface DocsHeaderProps {
   onNavigate: (sectionId: string, itemId?: string) => void
   isDark: boolean
   onToggleTheme: () => void
-  language: "zh" | "en"
-  onToggleLanguage: () => void
+  language: Language
+  onSelectLanguage: (language: Language) => void
   mobileMenuOpen?: boolean
   onToggleMobileMenu?: () => void
 }
@@ -91,12 +92,13 @@ export function DocsHeader({
   isDark,
   onToggleTheme,
   language,
-  onToggleLanguage,
+  onSelectLanguage,
   mobileMenuOpen,
   onToggleMobileMenu,
 }: DocsHeaderProps) {
   const [searchOpen, setSearchOpen] = useState(false)
   const [searchQuery, setSearchQuery] = useState("")
+  const docsData = getDocsData(language)
 
   const copy = language === "zh"
     ? {
@@ -109,8 +111,6 @@ export function DocsHeader({
         noResults: "未找到相关内容",
         quickJump: "快速跳转",
         toggleTheme: "切换主题",
-        toggleLanguage: "切换到英文",
-        languageButton: "EN",
       }
     : {
         manual: "User Manual",
@@ -122,8 +122,6 @@ export function DocsHeader({
         noResults: "No results found",
         quickJump: "Quick jump",
         toggleTheme: "Toggle theme",
-        toggleLanguage: "Switch to Chinese",
-        languageButton: "中文",
       }
 
   useEffect(() => {
@@ -340,15 +338,13 @@ export function DocsHeader({
 
           {/* Actions */}
           <div className="flex items-center justify-self-end gap-2">
-            <Button
+            <DocsLanguageMenu
+              language={language}
+              uiLanguage={language}
+              onSelectLanguage={onSelectLanguage}
               variant="ghost"
               size="sm"
-              onClick={onToggleLanguage}
-              className="text-sm"
-              aria-label={copy.toggleLanguage}
-            >
-              {copy.languageButton}
-            </Button>
+            />
             <Button
               variant="ghost"
               size="icon"

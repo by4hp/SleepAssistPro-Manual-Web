@@ -1,15 +1,17 @@
 "use client"
 
 import { cn } from "@/lib/utils"
-import { docsData } from "@/lib/docs-data"
+import { getDocsData, type Language } from "@/lib/docs-data"
 
 interface DocsTocProps {
   activeSection: string
   activeItemId: string
   onNavigate: (sectionId: string, itemId?: string) => void
+  language: Language
 }
 
-export function DocsToc({ activeSection, activeItemId, onNavigate }: DocsTocProps) {
+export function DocsToc({ activeSection, activeItemId, onNavigate, language }: DocsTocProps) {
+  const docsData = getDocsData(language)
   const currentSection = docsData.find(s => s.id === activeSection)
   if (!currentSection) return null
   if (activeSection === "quick-start" && !activeItemId) return null
@@ -37,7 +39,9 @@ export function DocsToc({ activeSection, activeItemId, onNavigate }: DocsTocProp
     <aside className="hidden w-56 shrink-0 xl:block">
       <div className="sticky top-8 pr-4">
         <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-          {activeTopItem ? "本页目录" : "本章内容"}
+          {activeTopItem
+            ? language === "zh" ? "本页目录" : "On This Page"
+            : language === "zh" ? "本章内容" : "In This Chapter"}
         </h3>
         <nav className="space-y-0.5">
           {tocItems.map((item) => (
