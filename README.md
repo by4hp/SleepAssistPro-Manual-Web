@@ -24,6 +24,18 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
+## Manual Assets
+
+Manual screenshots default to local files under `public/manual`, so local preview works without extra setup.
+
+If you later move images to external hosting, create a `.env.local` file and set:
+
+```bash
+NEXT_PUBLIC_MANUAL_ASSET_BASE_URL=https://your-asset-host
+```
+
+When this variable is set, any asset path that starts with `/manual/` will load from that host instead of local `public/manual`.
+
 ## Learn More
 
 To learn more, take a look at the following resources:

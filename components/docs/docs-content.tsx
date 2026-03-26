@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react"
 import { ArrowRight, ArrowUp, ArrowLeft, ChevronRight, Download } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { docsData, type DocItem, type DocSection } from "@/lib/docs-data"
+import { resolveManualAssetSrc } from "@/lib/manual-assets"
 import { Button } from "@/components/ui/button"
 
 interface DocsContentProps {
@@ -47,7 +48,7 @@ function renderStoreLogo(platform: string) {
   if (platform.toLowerCase() === "ios") {
     return (
       <img
-        src="/manual/chapter-01/app-store.png"
+        src={resolveManualAssetSrc("/manual/chapter-01/app-store.png")}
         alt=""
         aria-hidden="true"
         className="h-6 w-6 rounded-md object-cover"
@@ -58,7 +59,7 @@ function renderStoreLogo(platform: string) {
   if (platform.toLowerCase() === "android") {
     return (
       <img
-        src="/manual/chapter-01/google-play.png"
+        src={resolveManualAssetSrc("/manual/chapter-01/google-play.png")}
         alt=""
         aria-hidden="true"
         className="h-6 w-6 rounded-md object-cover"
@@ -80,6 +81,8 @@ function renderImageCard({
   caption?: string
   compact?: boolean
 }) {
+  const resolvedSrc = resolveManualAssetSrc(src)
+
   return (
     <figure
       className={cn(
@@ -88,7 +91,7 @@ function renderImageCard({
       )}
     >
       <img
-        src={src}
+        src={resolvedSrc}
         alt={alt}
         className={cn(
           "mx-auto h-auto w-full rounded-xl border border-border/40 bg-background object-contain shadow-sm",

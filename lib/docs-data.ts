@@ -44,7 +44,7 @@ export const docsData: DocSection[] = [
       {
         id: 'first-use-steps',
         title: '1.2 首次使用会经过哪些步骤',
-        content: `第一次使用时，您通常会依次经过下面几个阶段：\n\n1. 下载并打开 App\n2. 连接并识别您的床\n3. 如果连接的是智能床，注册或登录账号\n4. 完成床体设置和首次资料填写\n5. 进入首页，开始日常使用\n\n如果您现在已经装好 App，准备开始连床，直接继续看第 2 章即可。`,
+        content: `第一次使用时，您通常会依次经过下面几个阶段：\n\n1. 下载并打开 App\n2. 连接并识别您的床\n3. 如果连接的是智能床，注册或登录账号\n4. 完成床体设置和首次资料填写\n5. 进入首页，开始日常使用\n\n如果您现在已经装好 App，准备开始连床，直接继续看 {{jump-link|2.2 开始连接床|first-connection|start-connection}} 即可。`,
       },
     ],
   },
@@ -57,17 +57,17 @@ export const docsData: DocSection[] = [
       {
         id: 'preparation',
         title: '2.1 开始前准备',
-        content: `开始连床前，先把这些准备项看一遍。先确认电源、权限、网络和设备信息，后面会省事很多。\n\n开始前，先检查下面几项：\n\n- 床体已通电，并处于可连接状态\n- 手机已靠近床体，方便 App 搜索附近设备\n- 手机可正常使用蓝牙、位置和相机权限\n- 如果要连接 Wi-Fi 型智能床，请提前确认可用的 Wi-Fi 网络和密码\n- 如果自动识别失败，您可能需要扫描床体二维码，或手动输入设备号\n\n确认这些都没问题后，再继续看 2.2 开始连接床。`,
+        content: `开始连床前，先把这些准备项看一遍。先确认电源、权限、网络和设备信息，后面会省事很多。\n\n开始前，先检查下面几项：\n\n- 床体已通电，并处于可连接状态\n- 手机已靠近床体，方便 App 搜索附近设备\n- 手机可正常使用蓝牙、位置和相机权限\n- 如果要连接 Wi-Fi 型智能床，请提前确认可用的 Wi-Fi 网络和密码\n- 如果自动识别失败，您可能需要扫描床体二维码，或手动输入设备号\n\n确认这些都没问题后，再继续看 {{jump-link|2.2 开始连接床|first-connection|start-connection}}。`,
       },
       {
         id: 'start-connection',
         title: '2.2 开始连接床',
-        content: `前一节准备好后，就可以从欢迎页开始连床。\n\n第一次打开 App 时，您会先看到欢迎页。这里有两个主要按钮：Connect Your Bed 和 No Bed Yet?\n\n1. 如果您已经有床，点击 Connect Your Bed。\n2. 如果您还没有床，点击 No Bed Yet?，先前往品牌官网了解产品或购买床体。\n\n![欢迎页](/manual/chapter-02/onboarding/01-Entry-And-Setup/entry-welcome.png)\n\n如果您已经开始连床，下一步继续看 2.3 查找并识别您的床。`,
+        content: `前一节准备好后，就可以从欢迎页开始连床。\n\n第一次打开 App 时，您会先看到欢迎页。这里有两个主要按钮：Connect Your Bed 和 No Bed Yet?\n\n1. 如果您已经有床，点击 Connect Your Bed。\n2. 如果您还没有床，点击 No Bed Yet?，先前往品牌官网了解产品或购买床体。\n\n![欢迎页](/manual/chapter-02/onboarding/01-Entry-And-Setup/entry-welcome.png)\n\n如果您已经开始连床，下一步继续看 {{jump-link|2.3 查找并识别您的床|first-connection|find-identify-bed}}。`,
       },
       {
         id: 'find-identify-bed',
         title: '2.3 查找并识别您的床',
-        content: `从欢迎页进入后，先找到床，再确认床型。先试自动识别；找不到时，再扫码或手动输入设备号。确认床型后，再继续看 2.4。`,
+        content: `从欢迎页进入后，先找到床，再确认床型。先试自动识别；找不到时，再扫码或手动输入设备号。确认床型后，再继续看 {{jump-link|2.4 按床型继续设置|first-connection|bed-type-setup}}。`,
         children: [
           {
             id: 'auto-identify',
@@ -104,14 +104,14 @@ export const docsData: DocSection[] = [
           {
             id: 'smart-bed-setup',
             title: '2.4.2 智能床',
-            content: `识别到智能床后，如果您是第一次使用，请继续完成注册、床体连接和首次资料填写。下一步先看 2.5 首次注册智能床账号。`,
+            content: `识别到智能床后，如果您是第一次使用，请继续完成注册、床体连接和首次资料填写。下一步先看 {{jump-link|2.5 首次注册智能床账号|first-connection|register-account}}。`,
           },
         ],
       },
       {
         id: 'register-account',
         title: '2.5 首次注册智能床账号',
-        content: `这一节写给第一次用智能床、还没有账号的用户。您可以用邮箱、Apple 或 Google 注册。注册并验证后，再继续看 2.6 设置智能床。`,
+        content: `这一节写给第一次用智能床、还没有账号的用户。您可以用邮箱、Apple 或 Google 注册。注册并验证后，再继续看 {{jump-link|2.6 设置智能床|first-connection|setup-smart-bed}}。`,
         children: [
           {
             id: 'register-email',
@@ -133,7 +133,7 @@ export const docsData: DocSection[] = [
       {
         id: 'setup-smart-bed',
         title: '2.6 设置智能床',
-        content: `账号准备好后，接着把床连好。蓝牙型和 Wi-Fi 型的设置步骤不一样，连好以后还要确认是否打开睡眠数据跟踪。做完这里，再继续看 2.7 完成首次资料填写。`,
+        content: `账号准备好后，接着把床连好。蓝牙型和 Wi-Fi 型的设置步骤不一样，连好以后还要确认是否打开睡眠数据跟踪。做完这里，再继续看 {{jump-link|2.7 完成首次资料填写|first-connection|first-profile}}。`,
         children: [
           {
             id: 'setup-bt-bed',
@@ -155,7 +155,7 @@ export const docsData: DocSection[] = [
       {
         id: 'first-profile',
         title: '2.7 完成首次资料填写',
-        content: `床连好并确认睡眠数据跟踪后，还要补充第一次使用的信息。您需要填写昵称、基础信息、睡眠目标和个人偏好；如果床支持分区功能，页面还会多一步床边位置选择。完成这里后，您就可以进入首页，开始看第 3 章。`,
+        content: `床连好并确认睡眠数据跟踪后，还要补充第一次使用的信息。您需要填写昵称、基础信息、睡眠目标和个人偏好；如果床支持分区功能，页面还会多一步床边位置选择。完成这里后，您就可以进入首页，开始看 {{jump-link|3.2 智能床首页|using-app|homepage-smart}}。`,
         children: [
           {
             id: 'profile-no-zone',
@@ -316,7 +316,7 @@ export const docsData: DocSection[] = [
       {
         id: 'ai-issues',
         title: '4.6 遇到问题时',
-        content: `如果 AI Chat 只显示基础提示，或者您觉得回复和当前情况不一致，请先检查下面几项：\n\n- 当前是否已经连接智能床\n- 当前页面是否有可用数据\n- 您输入的问题里是否已经说清了功能名、问题现象或目标动作\n\n如果 AI Chat 仍然没有给出可用结果，请先回到第 8.6 节 AI 内容或实时数据暂不可用，再决定是否改用人工支持或反馈表单。`,
+        content: `如果 AI Chat 只显示基础提示，或者您觉得回复和当前情况不一致，请先检查下面几项：\n\n- 当前是否已经连接智能床\n- 当前页面是否有可用数据\n- 您输入的问题里是否已经说清了功能名、问题现象或目标动作\n\n如果 AI Chat 仍然没有给出可用结果，请先回到 {{jump-link|8.6 AI 内容或实时数据暂不可用|troubleshooting|ai-data-unavailable}}，再决定是否改用人工支持或反馈表单。`,
       },
     ],
   },
@@ -572,7 +572,7 @@ export const docsData: DocSection[] = [
           {
             id: 'auto-identify-failed',
             title: '8.1.2 自动识别失败时',
-            content: `1. 如果自动识别失败，改用 Scan QR Code with Camera 扫码识别。\n2. 如果扫码仍不可用，再改用手动输入设备号。\n3. 如果页面进入床型选择页，请手动确认正确的床型后继续。\n\n如果还是连不上，再继续看 8.2 权限未开启怎么办。`,
+            content: `1. 如果自动识别失败，改用 Scan QR Code with Camera 扫码识别。\n2. 如果扫码仍不可用，再改用手动输入设备号。\n3. 如果页面进入床型选择页，请手动确认正确的床型后继续。\n\n如果还是连不上，再继续看 {{jump-link|8.2 权限未开启怎么办|troubleshooting|permissions}}。`,
           },
         ],
       },
@@ -589,7 +589,7 @@ export const docsData: DocSection[] = [
       {
         id: 'disconnected',
         title: '8.4 首页显示未连接',
-        content: `如果首页显示未连接，说明 App 当前没有连上床体。您可以按下面的步骤处理：\n\n1. 先确认页面上出现了未连接提示和 Proceed to bed connection 入口。\n2. 点击 Proceed to bed connection。\n3. 按页面提示重新连接您的床。\n4. 如果重新连接时又遇到搜索或识别问题，再回看 8.1 和 8.2。\n\n![首页未连接提示](/manual/chapter-08/homepage/No%20connection.png)`,
+        content: `如果首页显示未连接，说明 App 当前没有连上床体。您可以按下面的步骤处理：\n\n1. 先确认页面上出现了未连接提示和 Proceed to bed connection 入口。\n2. 点击 Proceed to bed connection。\n3. 按页面提示重新连接您的床。\n4. 如果重新连接时又遇到搜索或识别问题，再回看 {{jump-link|8.1 搜索不到床或连接失败|troubleshooting|connection-issues}} 和 {{jump-link|8.2 权限未开启怎么办|troubleshooting|permissions}}。\n\n![首页未连接提示](/manual/chapter-08/homepage/No%20connection.png)`,
       },
       {
         id: 'no-report',
@@ -604,7 +604,7 @@ export const docsData: DocSection[] = [
       {
         id: 'login-issues',
         title: '8.7 收不到验证码或无法完成登录',
-        content: `如果注册、登录或重置密码时卡住了，请先检查这几项：\n\n1. 确认输入的邮箱地址是否正确。\n2. 等待系统邮件发送完成后，再查看邮箱。\n3. 如果是登录已有账号，请确认当前使用的是正确的登录方式，例如邮箱登录、Apple 登录或 Google 登录。\n4. 如果您无法继续登录，请在 Sign In 页面点击 Forgot Password?，然后按邮件提示重新设置密码。\n\n如果您已经登录 App，只是想修改密码，请直接看第 6.4 修改或找回密码。`,
+        content: `如果注册、登录或重置密码时卡住了，请先检查这几项：\n\n1. 确认输入的邮箱地址是否正确。\n2. 等待系统邮件发送完成后，再查看邮箱。\n3. 如果是登录已有账号，请确认当前使用的是正确的登录方式，例如邮箱登录、Apple 登录或 Google 登录。\n4. 如果您无法继续登录，请在 Sign In 页面点击 Forgot Password?，然后按邮件提示重新设置密码。\n\n如果您已经登录 App，只是想修改密码，请直接看 {{jump-link|6.4 修改或找回密码|account-security|password}}。`,
       },
     ],
   },
