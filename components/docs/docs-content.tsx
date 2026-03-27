@@ -3,7 +3,8 @@
 import { useEffect, useRef, useState } from "react"
 import { ArrowRight, ArrowUp, ArrowLeft, ChevronRight, Download } from "lucide-react"
 import { cn } from "@/lib/utils"
-import { getDocsData, type DocItem, type DocSection, type Language } from "@/lib/docs-data"
+import type { DocItem, DocSection, Language } from "@/lib/docs-data"
+import type { DocsDataByLanguage } from "@/lib/manual-content.types"
 import { resolveManualAssetSrc } from "@/lib/manual-assets"
 import { Button } from "@/components/ui/button"
 
@@ -12,6 +13,7 @@ interface DocsContentProps {
   activeItemId: string
   onNavigate: (sectionId: string, itemId?: string) => void
   language: Language
+  docsDataByLanguage: DocsDataByLanguage
 }
 
 // Render inline bold (**text**) within a string
@@ -538,10 +540,10 @@ function ItemPage({
 }
 
 // ── Main export ───────────────────────────────────────────────────────────────
-export function DocsContent({ activeSection, activeItemId, onNavigate, language }: DocsContentProps) {
+export function DocsContent({ activeSection, activeItemId, onNavigate, language, docsDataByLanguage }: DocsContentProps) {
   const containerRef = useRef<HTMLDivElement>(null)
   const [showBackToTop, setShowBackToTop] = useState(false)
-  const docsData = getDocsData(language)
+  const docsData = docsDataByLanguage[language]
   const flatList = buildFlatList(docsData)
 
   const currentSection = docsData.find(s => s.id === activeSection)

@@ -1,17 +1,19 @@
 "use client"
 
 import { cn } from "@/lib/utils"
-import { getDocsData, type Language } from "@/lib/docs-data"
+import type { Language } from "@/lib/docs-data"
+import type { DocsDataByLanguage } from "@/lib/manual-content.types"
 
 interface DocsTocProps {
   activeSection: string
   activeItemId: string
   onNavigate: (sectionId: string, itemId?: string) => void
   language: Language
+  docsDataByLanguage: DocsDataByLanguage
 }
 
-export function DocsToc({ activeSection, activeItemId, onNavigate, language }: DocsTocProps) {
-  const docsData = getDocsData(language)
+export function DocsToc({ activeSection, activeItemId, onNavigate, language, docsDataByLanguage }: DocsTocProps) {
+  const docsData = docsDataByLanguage[language]
   const currentSection = docsData.find(s => s.id === activeSection)
   if (!currentSection) return null
   if (activeSection === "quick-start" && !activeItemId) return null

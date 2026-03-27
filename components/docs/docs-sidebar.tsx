@@ -3,7 +3,8 @@
 import { useEffect, useState } from "react"
 import { ChevronRight, Search, Moon, Sun } from "lucide-react"
 import { cn } from "@/lib/utils"
-import { getDocsData, type Language } from "@/lib/docs-data"
+import type { Language } from "@/lib/docs-data"
+import type { DocsDataByLanguage } from "@/lib/manual-content.types"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { DocsLanguageMenu } from "@/components/docs/docs-language-menu"
@@ -18,6 +19,7 @@ interface DocsSidebarProps {
   onSelectLanguage?: (language: Language) => void
   mobileOpen?: boolean
   onMobileOpenChange?: (open: boolean) => void
+  docsDataByLanguage: DocsDataByLanguage
 }
 
 function SidebarContent({
@@ -30,10 +32,11 @@ function SidebarContent({
   onSelectLanguage,
   onClose,
   isMobile = false,
+  docsDataByLanguage,
 }: DocsSidebarProps & { onClose?: () => void; isMobile?: boolean }) {
   const [expandedSections, setExpandedSections] = useState<string[]>([activeSection])
   const [searchQuery, setSearchQuery] = useState("")
-  const docsData = getDocsData(language)
+  const docsData = docsDataByLanguage[language]
 
   const copy = language === "zh"
     ? {

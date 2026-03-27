@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 import { Analytics } from '@vercel/analytics/next'
+import { cookies } from 'next/headers'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -24,13 +25,23 @@ export const viewport: Viewport = {
   viewportFit: 'cover',
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const cookieStore = await cookies()
+  const themeCookie = cookieStore.get('sleepassistpro-theme')?.value
+  const languageCookie = cookieStore.get('sleepassistpro-language')?.value
+  const isDark = themeCookie !== 'light'
+  const htmlLanguage = languageCookie === 'en' ? 'en' : 'zh'
+
   return (
-    <html lang="en">
+    <html
+      lang={htmlLanguage}
+      className={isDark ? 'dark' : undefined}
+      style={{ colorScheme: isDark ? 'dark' : 'light' }}
+    >
       <body className="font-sans antialiased">
         {children}
         <Analytics />

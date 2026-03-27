@@ -1,6 +1,7 @@
 import fs from "node:fs"
 import path from "node:path"
 import vm from "node:vm"
+import { parseSectionMarkdown } from "../lib/manual-markdown.mjs"
 
 const repoRoot = process.cwd()
 const outputDir = path.join(repoRoot, "exports")
@@ -8,6 +9,7 @@ const outputDir = path.join(repoRoot, "exports")
 const languageConfigs = {
   zh: {
     sourceFile: path.join(repoRoot, "lib", "docs-data.zh.ts"),
+    markdownDir: path.join(repoRoot, "content", "manual", "zh"),
     outputBasename: "manual.zh",
     documentTitle: "SleepAssistPro 用户手册",
     quickLinksTitle: "快速索引",
@@ -15,6 +17,7 @@ const languageConfigs = {
   },
   en: {
     sourceFile: path.join(repoRoot, "lib", "docs-data.en.ts"),
+    markdownDir: path.join(repoRoot, "content", "manual", "en"),
     outputBasename: "manual.en",
     documentTitle: "SleepAssistPro User Manual",
     quickLinksTitle: "Quick Links",
@@ -52,6 +55,22 @@ module.exports = { docsData, quickLinks }
   })
 
   return context.module.exports
+}
+
+function loadMarkdownSections(markdownDir) {
+  if (!markdownDir || !fs.existsSync(markdownDir)) {
+    return []
+  }
+
+  return fs
+    .readdirSync(markdownDir)
+    .filter((filename) => filename.endsWith(".md"))
+    .sort()
+    .map((filename) => {
+      const filePath = path.join(markdownDir, filename)
+      const markdown = fs.readFileSync(filePath, "utf8")
+      return parseSectionMarkdown(markdown)
+    })
 }
 
 function toPosixPath(filePath) {
@@ -256,7 +275,13 @@ function exportLanguage(language, options) {
   }
 
   const outputFile = getOutputFile(config, options)
-  const { docsData, quickLinks } = loadManualModule(config.sourceFile)
+  const { docsData: legacyDocsData, quickLinks } = loadManualModule(config.sourceFile)
+  const markdownSections = loadMarkdownSections(config.markdownDir)
+  const markdownSectionIdSet = new Set(markdownSections.map((section) => section.id))
+  const docsData = [
+    ...markdownSections,
+    ...legacyDocsData.filter((section) => !markdownSectionIdSet.has(section.id)),
+  ]
   const markdown = buildMarkdownDocument({
     docsData,
     quickLinks,

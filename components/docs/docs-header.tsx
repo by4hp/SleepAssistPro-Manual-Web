@@ -12,7 +12,8 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
-import { getDocsData, type DocItem, type DocSection, type Language } from "@/lib/docs-data"
+import type { DocItem, DocSection, Language } from "@/lib/docs-data"
+import type { DocsDataByLanguage } from "@/lib/manual-content.types"
 import { DocsLanguageMenu } from "@/components/docs/docs-language-menu"
 
 interface DocsHeaderProps {
@@ -23,6 +24,7 @@ interface DocsHeaderProps {
   onSelectLanguage: (language: Language) => void
   mobileMenuOpen?: boolean
   onToggleMobileMenu?: () => void
+  docsDataByLanguage: DocsDataByLanguage
 }
 
 interface SearchResult {
@@ -95,10 +97,11 @@ export function DocsHeader({
   onSelectLanguage,
   mobileMenuOpen,
   onToggleMobileMenu,
+  docsDataByLanguage,
 }: DocsHeaderProps) {
   const [searchOpen, setSearchOpen] = useState(false)
   const [searchQuery, setSearchQuery] = useState("")
-  const docsData = getDocsData(language)
+  const docsData = docsDataByLanguage[language]
 
   const copy = language === "zh"
     ? {
