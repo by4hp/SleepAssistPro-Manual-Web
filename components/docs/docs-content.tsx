@@ -316,12 +316,12 @@ function QuickStartLanding({
 
       <section className="mb-10">
         <h2 className="mb-3 text-xl font-semibold text-foreground">
-          {language === "zh" ? "欢迎使用 SleepAssistPro" : "Welcome to SleepAssistPro"}
+          {language === "zh" ? "欢迎使用 Sleep Assist® Pro" : "Welcome to Sleep Assist® Pro"}
         </h2>
         <p className="max-w-2xl text-[0.82rem] font-medium leading-6 text-muted-foreground/90 sm:text-[0.88rem] sm:leading-7">
           {language === "zh"
-            ? "这份手册适合第一次使用和日常使用 SleepAssistPro 的用户；如果您是第一次使用，建议按照顺序阅读，如果遇到问题，也可以跳转到对应的章节查看。"
-            : "This manual is designed for both first-time and everyday SleepAssistPro users. If you are new, reading in order is the easiest path. If you run into a problem, you can also jump straight to the chapter that matches it."}
+            ? "这是一份适用于 Ergomotion 智能床 App 的使用手册，可以帮助您下载和安装 App、连接智能床、注册或登录账号、了解常用功能，并在遇到问题时快速找到排查方法。第一次使用时，建议按章节顺序阅读；日常使用中如果遇到具体问题，也可以直接跳到对应章节查看。"
+            : "This manual is designed for both first-time and everyday Sleep Assist® Pro users. If you are new, reading in order is the easiest path. If you run into a problem, you can also jump straight to the chapter that matches it."}
         </p>
       </section>
 

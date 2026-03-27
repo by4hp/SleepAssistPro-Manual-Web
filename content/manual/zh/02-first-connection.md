@@ -1,43 +1,43 @@
 # 2. 第一次连接与设置 {#first-connection}
 
-这一章适合第一次连接床的用户。您按顺序往下操作，就能完成识别、连接和首次设置。
+这一章会带您把床连接到 App，并完成第一次使用前需要的基础设置。第一次使用时，跟着顺序一步一步操作就可以。
 
 ### 2.1 开始前准备 {#preparation}
 
-开始连床前，先把这些准备项看一遍。先确认电源、权限、网络和设备信息，后面会省事很多。
+开始之前，先花半分钟确认下面几项。准备好以后，后面的连接过程会更顺利。
 
 开始前，先检查下面几项：
 
-- 床体已通电，并处于可连接状态
-- 手机已靠近床体，方便 App 搜索附近设备
+- 床已经通电，并处于可连接状态
+- 手机已靠近床，方便 App 搜索附近的床
 - 手机可正常使用蓝牙、位置和相机权限
-- 如果要连接 Wi-Fi 型智能床，请提前确认可用的 Wi-Fi 网络和密码
-- 如果自动识别失败，您可能需要扫描床体二维码，或手动输入设备号
+- 如果要连接 Wi-Fi 型智能床，请提前确认可用的 Wi-Fi 网络和密码。床只支持单独的 2.4G 或 5G 频段，不能使用多频合一频段
+- 如果自动查找没有找到您的床，先试扫码；如果已经找到床但床型不对，再手动选择床型；如果扫码也不行，再手动输入设备号
 
 确认这些都没问题后，再继续看 {{jump-link|2.2 开始连接床|first-connection|start-connection}}。
 
 ### 2.2 开始连接床 {#start-connection}
 
-前一节准备好后，就可以从欢迎页开始连床。
+准备好以后，就可以从欢迎页开始连接您的床。
 
-第一次打开 App 时，您会先看到欢迎页。这里有两个主要按钮：Connect Your Bed 和 No Bed Yet?
+第一次打开 App 时，您会先看到欢迎页。这里最常用的是两个按钮：Connect Your Bed 和 No Bed Yet?
 
 1. 如果您已经有床，点击 Connect Your Bed。
-2. 如果您还没有床，点击 No Bed Yet?，先前往品牌官网了解产品或购买床体。
+2. 如果您还没有床，点击 No Bed Yet?，先前往 Ergomotion 官网了解并购买智能床。
 
 ![欢迎页](/manual/chapter-02/onboarding/01-Entry-And-Setup/entry-welcome.png)
 
-如果您已经开始连床，下一步继续看 {{jump-link|2.3 查找并识别您的床|first-connection|find-identify-bed}}。
+如果您已经开始连床，下一步继续看 {{jump-link|2.3 查找并连接您的床|first-connection|find-identify-bed}}。
 
-### 2.3 查找并识别您的床 {#find-identify-bed}
+### 2.3 查找并连接您的床 {#find-identify-bed}
 
-从欢迎页进入后，先找到床，再确认床型。先试自动识别；找不到时，再扫码或手动输入设备号。确认床型后，再继续看 {{jump-link|2.4 按床型继续设置|first-connection|bed-type-setup}}。
+进入以后，先试最简单的自动连接。大多数情况下，App 会直接帮您找到床；如果没有找到，再改用扫码；如果扫码也不行，再手动输入设备号。如果已经找到床，但还不能确认床型，就按页面提示手动选择正确的床型。确认床型后，再继续看 {{jump-link|2.4 按床型继续设置|first-connection|bed-type-setup}}。
 
-#### 2.3.1 自动识别 {#auto-identify}
+#### 2.3.1 自动连接 {#auto-identify}
 
-这是最推荐的方式。大多数用户都可以在这里完成识别。
+这是最省事的方式。大多数用户都可以在这里直接把床连上。
 
-1. 点击 Connect 开始找床。
+1. 点击 Connect，开始查找您的床。
 
 ![开始找床](/manual/chapter-02/onboarding/01-Entry-And-Setup/entry-bed-setup-instructions.png)
 
@@ -45,15 +45,15 @@
 
 ![蓝牙权限提示](/manual/chapter-02/onboarding/02-Bed-Search-And-Identification/bed-search-bluetooth-permission-required.png)
 
-3. 等待 App 自动搜索并识别附近可连接的床。
+3. 等待 App 自动查找附近可以连接的床。
 
 ![搜索中](/manual/chapter-02/onboarding/02-Bed-Search-And-Identification/bed-search-loading.png)
 
-4. 如果页面显示设备列表，请选择您的床并继续。
+4. 如果页面显示床列表，请选择您的床并继续。
 
 ![搜索结果](/manual/chapter-02/onboarding/02-Bed-Search-And-Identification/bed-search-results-multiple-beds.png)
 
-5. 如果 App 找到了设备，但还没有识别出床型，先选择您的设备，再按页面提示进入床型选择页。
+5. 如果 App 找到了您的床，但还不能判断床型，先选择您的床，再按页面提示进入床型选择页。
 
 ![设备已找到但未识别床型](/manual/chapter-02/onboarding/02-Bed-Search-And-Identification/bed-selection-before-type-identification.png)
 
@@ -61,9 +61,9 @@
 
 ![床型选择](/manual/chapter-02/onboarding/02-Bed-Search-And-Identification/bed-identification-type-selection.png)
 
-#### 2.3.2 扫码识别 {#qr-identify}
+#### 2.3.2 扫码连接 {#qr-identify}
 
-如果自动识别没有找到您的床，请点击 Try another way。
+如果自动查找没有找到您的床，可以改用这种方式继续连接。
 
 1. 在 Unable to Connect 页面点击 Scan QR Code with Camera。
 
@@ -73,7 +73,7 @@
 
 ![相机权限提示](/manual/chapter-02/onboarding/03-Alternative-Connection/qr-scan-camera-permission-required.png)
 
-3. 将摄像头对准床体上的二维码进行扫描。
+3. 将摄像头对准主控盒上的二维码进行扫描。主控盒位于您的床底。
 
 ![扫码页](/manual/chapter-02/onboarding/03-Alternative-Connection/qr-scan-overview.png)
 
@@ -81,27 +81,28 @@
 
 ![扫码成功占位](/manual/chapter-02/onboarding/03-Alternative-Connection/qr-scan-success-placeholder.svg)
 
-#### 2.3.3 手动输入设备号 {#manual-identify}
+#### 2.3.3 手动输入设备号连接 {#manual-identify}
 
-如果扫码不可用，或者二维码识别失败，您可以改用手动输入设备号。
+如果扫码不可用，或者扫完以后还是连不上，您可以改用手动输入设备号。
 
-1. 在 Unable to Connect 页面点击 Manually Enter Bluetooth ID，并根据图示找到设备号。
+1. 在 Unable to Connect 页面点击 Manually Enter Bluetooth ID。
+2. 设备号在床底主控盒上，您可以按图示查找。
 
 ![无法连接页](/manual/chapter-02/onboarding/03-Alternative-Connection/alternative-connection-unable-to-connect.png)
 
-2. 在输入页填写床体上的设备号。
+3. 在输入页填写您智能床的设备号。
 
 ![蓝牙 ID 输入页](/manual/chapter-02/onboarding/03-Alternative-Connection/manual-bluetooth-id-entry.png)
 
-3. 确认输入无误后，继续下一步。如果输入的设备号格式不正确，页面会直接提示错误。修改后再继续即可。
+4. 确认输入无误后，继续下一步。如果输入的设备号格式不正确，页面会直接提示错误。修改后再继续即可。
 
 ![输入错误提示](/manual/chapter-02/onboarding/03-Alternative-Connection/manual-bluetooth-id-error.png)
 
-4. 识别成功后，按页面提示继续连接。
+5. 连接成功后，按页面提示继续下一步。
 
 #### 2.3.4 还不想连接床 {#skip-connect}
 
-如果您现在不想连接床，可以先点击 Skip To Sign In。
+如果您现在不想连接床，或者这张智能床之前已经连过，可以先点击 Skip To Sign In。
 
 ![连床说明页](/manual/chapter-02/onboarding/01-Entry-And-Setup/entry-bed-setup-instructions.png)
 
@@ -109,21 +110,21 @@
 
 ### 2.4 按床型继续设置 {#bed-type-setup}
 
-确认床型后，接下来会分成两种情况。电动床可以直接进入首页；智能床还要注册或登录账号、连接床体，再填写第一次使用的信息。
+找到床以后，接下来怎么继续，会根据床的类型不同而不同。电动床可以直接进入首页；智能床还需要注册或登录账号，再完成后面的设置。
 
 #### 2.4.1 电动床 {#electric-bed-setup}
 
-识别到电动床后，App 会直接进入 Homepage。电动床不需要登录账号，到这里第 2 章就基本完成了。接下来您可以直接看第 3 章的 {{jump-link|电动床首页|using-app|homepage-electric}} 和 {{jump-link|遥控器|using-app|remote}}。
+如果您使用的是电动床，App 会直接进入 Homepage。电动床不需要注册或登录账号，连上以后就可以开始使用。接下来您可以直接看第 3 章的 {{jump-link|电动床首页|using-app|homepage-electric}} 和 {{jump-link|遥控器|using-app|remote}}。
 
 ![电动床首页](/manual/chapter-02/homepage/electric-bed-homepage.png)
 
 #### 2.4.2 智能床 {#smart-bed-setup}
 
-识别到智能床后，如果您是第一次使用，请继续完成注册、床体连接和首次资料填写。下一步先看 {{jump-link|2.5 首次注册智能床账号|first-connection|register-account}}。
+如果您使用的是智能床，并且是第一次使用，请继续完成注册、登录和首次资料填写。下一步先看 {{jump-link|2.5 首次注册智能床账号|first-connection|register-account}}。
 
 ### 2.5 首次注册智能床账号 {#register-account}
 
-这一节写给第一次用智能床、还没有账号的用户。您可以用邮箱、Apple 或 Google 注册。注册并验证后，再继续看 {{jump-link|2.6 设置智能床|first-connection|setup-smart-bed}}。
+如果您第一次使用智能床、还没有账号，就在这里完成注册。您可以用邮箱、Apple 或 Google 注册。注册并验证后，再继续看 {{jump-link|2.6 设置智能床|first-connection|setup-smart-bed}}。
 
 #### 2.5.1 使用邮箱注册 {#register-email}
 
@@ -183,17 +184,17 @@
 
 ### 2.6 设置智能床 {#setup-smart-bed}
 
-账号准备好后，接着把床连好。蓝牙型和 Wi-Fi 型的设置步骤不一样，连好以后还要确认是否打开睡眠数据跟踪。做完这里，再继续看 {{jump-link|2.7 完成首次资料填写|first-connection|first-profile}}。
+账号准备好后，接着把智能床连好。蓝牙型和 Wi-Fi 型的步骤会有一点不同，连好以后还要确认是否打开睡眠数据跟踪。做完这里，再继续看 {{jump-link|2.7 完成首次资料填写|first-connection|first-profile}}。
 
 #### 2.6.1 设置蓝牙型智能床 {#setup-bt-bed}
 
-如果识别到的是蓝牙型智能床，操作会简单一些。
+如果您连接的是蓝牙型智能床，这里的步骤会更简单一些。
 
 1. 等待 App 完成蓝牙连接。
 
 ![蓝牙连接阶段](/manual/chapter-02/onboarding/05-Smart-Bed-Connection/bluetooth-connection-stage-bluetooth.png)
 
-2. 等待 App 完成床体设置。
+2. 等待 App 完成智能床设置。
 
 ![床体设置阶段](/manual/chapter-02/onboarding/05-Smart-Bed-Connection/bluetooth-connection-stage-bed-setup.png)
 
@@ -203,9 +204,9 @@
 
 #### 2.6.2 设置 Wi-Fi 型智能床 {#setup-wifi-bed}
 
-如果识别到的是 Wi-Fi 型智能床，您还要连上家里的 Wi-Fi。
+如果您连接的是 Wi-Fi 型智能床，还需要把床连上家里的 Wi-Fi。
 
-1. 选择可用的 Wi-Fi 网络。
+1. 选择可用的 Wi-Fi 网络。请使用单独的 2.4G 或 5G 频段，不要使用多频合一频段。
 
 ![Wi-Fi 选择页](/manual/chapter-02/onboarding/05-Smart-Bed-Connection/wifi-network-selection.png)
 
@@ -231,7 +232,7 @@
 
 #### 2.6.3 开启睡眠数据跟踪 {#setup-sleep-tracking}
 
-蓝牙型或 Wi-Fi 型智能床连好后，页面会显示 Sleep Data Tracking。
+床连接完成后，页面会显示 Sleep Data Tracking。您可以在这里决定是否让 App 继续记录后续的睡眠数据。
 
 1. 先阅读页面说明。
 
@@ -247,7 +248,7 @@
 
 ### 2.7 完成首次资料填写 {#first-profile}
 
-床连好并确认睡眠数据跟踪后，还要补充第一次使用的信息。您需要填写昵称、基础信息、睡眠目标和个人偏好；如果床支持分区功能，页面还会多一步床边位置选择。完成这里后，您就可以进入首页，开始看 {{jump-link|3.2 智能床首页|using-app|homepage-smart}}。
+床连好并确认睡眠数据跟踪后，还需要补充第一次使用的信息。您会依次填写昵称、基础信息、睡眠目标和个人偏好；如果床支持分区功能，还会多一步选择睡觉位置。完成这里后，您就可以进入首页，开始看 {{jump-link|3.2 智能床首页|using-app|homepage-smart}}。
 
 #### 2.7.1 无分区功能智能床 {#profile-no-zone}
 
@@ -283,9 +284,9 @@
 
 ![资料填写说明页](/manual/chapter-02/onboarding/07-Profile-And-Preferences/01-Shared-Steps/profile-setup-introduction.png)
 
-3. 先选择您的床边位置。
+3. 先选择您的睡觉位置。
 
-![床边位置选择页](/manual/chapter-02/onboarding/07-Profile-And-Preferences/03-With-Partition-Feature/profile-bed-side-selection.png)
+![睡觉位置选择页](/manual/chapter-02/onboarding/07-Profile-And-Preferences/03-With-Partition-Feature/profile-bed-side-selection.png)
 
 4. 进入基础信息填写页，并先确认单位设置。
 
