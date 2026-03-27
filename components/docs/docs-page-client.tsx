@@ -32,29 +32,38 @@ export function DocsPageClient({
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [language, setLanguage] = useState<Language>(initialLanguage)
   const [isDark, setIsDark] = useState(initialTheme === "dark")
+  const [preferencesHydrated, setPreferencesHydrated] = useState(false)
 
   useEffect(() => {
     const savedLanguage = window.localStorage.getItem(LANGUAGE_STORAGE_KEY)
+    let nextLanguage = initialLanguage
     if (savedLanguage === "zh" || savedLanguage === "en") {
-      setLanguage(savedLanguage)
+      nextLanguage = savedLanguage
     }
 
     const savedTheme = window.localStorage.getItem(THEME_STORAGE_KEY)
+    let nextIsDark = initialTheme === "dark"
     if (savedTheme === "light" || savedTheme === "dark") {
-      setIsDark(savedTheme === "dark")
+      nextIsDark = savedTheme === "dark"
     }
-  }, [])
+
+    setLanguage(nextLanguage)
+    setIsDark(nextIsDark)
+    setPreferencesHydrated(true)
+  }, [initialLanguage, initialTheme])
 
   useEffect(() => {
+    if (!preferencesHydrated) return
     document.documentElement.lang = language
     persistPreference(LANGUAGE_STORAGE_KEY, language)
-  }, [language])
+  }, [language, preferencesHydrated])
 
   useEffect(() => {
+    if (!preferencesHydrated) return
     document.documentElement.classList.toggle("dark", isDark)
     document.documentElement.style.colorScheme = isDark ? "dark" : "light"
     persistPreference(THEME_STORAGE_KEY, isDark ? "dark" : "light")
-  }, [isDark])
+  }, [isDark, preferencesHydrated])
 
   const handleNavigate = (sectionId: string, itemId?: string) => {
     setActiveSection(sectionId)

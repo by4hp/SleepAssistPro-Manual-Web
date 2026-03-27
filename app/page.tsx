@@ -3,6 +3,8 @@ import { cookies } from "next/headers"
 import { DocsPageClient } from "@/components/docs/docs-page-client"
 import { getDocsDataByLanguage } from "@/lib/manual-content"
 
+export const dynamic = "force-dynamic"
+
 export default async function DocsPage() {
   if (process.env.NODE_ENV === "development") {
     noStore()
