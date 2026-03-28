@@ -53,8 +53,8 @@ export function DocsToc({ activeSection, activeItemId, onNavigate, language, doc
               className={cn(
                 "pressable block w-full truncate rounded-lg px-2.5 py-1.5 text-left text-xs font-medium transition-colors",
                 activeItemId === item.id
-                  ? "bg-primary/15 text-primary"
-                  : "text-muted-foreground hover:bg-primary/5 hover:text-foreground"
+                  ? "bg-primary/15 text-primary dark:bg-[#0E303F] dark:text-[#4197B5]"
+                  : "text-muted-foreground hover:bg-primary/5 hover:text-foreground dark:text-[#A0A6AE] dark:hover:bg-[#1B232D] dark:hover:text-white"
               )}
             >
               {item.title}

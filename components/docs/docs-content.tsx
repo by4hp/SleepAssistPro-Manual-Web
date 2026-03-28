@@ -35,7 +35,7 @@ function renderInlineMarkdown(
           key={i}
           type="button"
           onClick={() => onNavigate?.(sectionId, itemId)}
-          className="pressable mx-1 inline-flex items-center gap-1 rounded-full border border-primary/20 bg-primary/8 px-2 py-0.5 align-middle text-sm font-medium text-primary transition-colors hover:bg-primary/14"
+          className="pressable mx-1 inline-flex items-center gap-1 rounded-full border border-primary/20 bg-primary/8 px-2 py-0.5 align-middle text-sm font-medium text-primary transition-colors hover:bg-primary/14 dark:border-[#1B6E87] dark:bg-[#0E303F] dark:text-[#4197B5] dark:hover:bg-[#0E303F]"
         >
           <span>{label}</span>
           <ArrowRight className="h-3.5 w-3.5" />
@@ -89,7 +89,7 @@ function renderImageCard({
   return (
     <figure
       className={cn(
-        "overflow-hidden rounded-2xl border border-border/50 bg-card/60 p-3",
+        "overflow-hidden",
         compact ? "h-full" : "my-4"
       )}
     >
@@ -97,7 +97,7 @@ function renderImageCard({
         src={resolvedSrc}
         alt={alt}
         className={cn(
-          "mx-auto h-auto w-full rounded-xl border border-border/40 bg-background object-contain shadow-sm",
+          "mx-auto h-auto w-full object-contain",
           compact
             ? "max-w-[16rem] sm:max-w-[18rem] lg:max-w-full"
             : "max-w-[16rem] sm:max-w-[18rem] lg:max-w-[30%]"
@@ -159,7 +159,7 @@ function renderContent(
       elements.push(
         <div
           key={key++}
-          className="my-5 rounded-3xl border border-border/60 bg-[linear-gradient(135deg,rgba(255,255,255,0.96),rgba(240,247,248,0.92))] p-4 shadow-[0_18px_50px_-38px_rgba(15,23,42,0.45)] dark:bg-[linear-gradient(135deg,rgba(35,46,57,0.95),rgba(22,31,39,0.98))]"
+          className="my-5 rounded-3xl border border-border/60 bg-[linear-gradient(135deg,color-mix(in_oklch,var(--card)_96%,white),color-mix(in_oklch,var(--secondary)_78%,var(--card)))] p-4 shadow-[0_18px_50px_-38px_rgba(15,23,42,0.45)] dark:border-[#39434F] dark:bg-[#1B232D]"
         >
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <div className="min-w-0">
@@ -171,7 +171,7 @@ function renderContent(
               </p>
             </div>
 
-            <div className="inline-flex items-center gap-3 rounded-2xl border border-border/80 bg-[color-mix(in_oklch,var(--secondary)_78%,white)] px-4 py-3 text-sm font-medium text-foreground shadow-[0_10px_24px_-18px_rgba(15,23,42,0.38)] dark:border-white/8 dark:bg-[color-mix(in_oklch,var(--secondary)_82%,var(--card))] dark:text-foreground">
+            <div className="inline-flex items-center gap-3 rounded-2xl border border-border/80 bg-[color-mix(in_oklch,var(--secondary)_78%,white)] px-4 py-3 text-sm font-medium text-foreground shadow-[0_10px_24px_-18px_rgba(15,23,42,0.38)] dark:border-[#1B6E87] dark:bg-[#0E303F] dark:text-[#4197B5]">
               {renderStoreLogo(platform)}
               <span>{label}</span>
             </div>
@@ -298,7 +298,7 @@ function QuickStartLanding({
   docsData: DocSection[]
   language: Language
 }) {
-  const [expandedSections, setExpandedSections] = useState<string[]>(["quick-start"])
+  const [expandedSections, setExpandedSections] = useState<string[]>([])
 
   const toggleSection = (sectionId: string) => {
     setExpandedSections((prev) =>
@@ -308,7 +308,7 @@ function QuickStartLanding({
 
   return (
     <article>
-      <header className="mb-8 border-b border-border/50 pb-8">
+      <header className="mb-8 border-b border-border/35 pb-8 dark:border-[#39434F]/50">
         <h1 className="mb-3 text-2xl font-bold tracking-tight text-foreground lg:text-3xl">
           {section.title}
         </h1>
@@ -318,7 +318,7 @@ function QuickStartLanding({
         <h2 className="mb-3 text-xl font-semibold text-foreground">
           {language === "zh" ? "欢迎使用 Sleep Assist® Pro" : "Welcome to Sleep Assist® Pro"}
         </h2>
-        <p className="max-w-2xl text-[0.82rem] font-medium leading-6 text-muted-foreground/90 sm:text-[0.88rem] sm:leading-7">
+        <p className="manual-copy max-w-2xl text-[0.82rem] leading-6 sm:text-[0.88rem] sm:leading-7">
           {language === "zh"
             ? "这是一份适用于 Ergomotion 智能床 App 的使用手册，可以帮助您下载和安装 App、连接智能床、注册或登录账号、了解常用功能，并在遇到问题时快速找到排查方法。第一次使用时，建议按章节顺序阅读；日常使用中如果遇到具体问题，也可以直接跳到对应章节查看。"
             : "This manual is designed for both first-time and everyday Sleep Assist® Pro users. If you are new, reading in order is the easiest path. If you run into a problem, you can also jump straight to the chapter that matches it."}
@@ -326,64 +326,73 @@ function QuickStartLanding({
       </section>
 
       <section className="mb-10">
-        <h2 className="mb-4 text-base font-semibold text-foreground lg:text-lg">
-          {language === "zh" ? "章节入口" : "Chapter Shortcuts"}
-        </h2>
-        <div className="space-y-3">
-          {docsData.map((sectionItem) => (
+        <div className="rounded-2xl border border-border/50 bg-card/60 p-4 backdrop-blur-sm dark:border-[#39434F] dark:bg-[#1B232D]">
+          <h2 className="manual-copy mb-3 text-sm font-medium">
+            {language === "zh" ? "章节入口" : "Chapter Shortcuts"}
+          </h2>
+          <div className="space-y-2">
+            {docsData.map((sectionItem) => (
             <div
               key={sectionItem.id}
-              className="rounded-xl border border-border/60 bg-background/80 backdrop-blur-sm transition-all hover:border-primary/40"
+              className={cn(
+                "overflow-hidden rounded-xl border border-border/50 bg-background transition-all hover:border-primary/50 dark:border-[#39434F] dark:bg-[#060C13] dark:hover:border-[#1B6E87]",
+                expandedSections.includes(sectionItem.id) && "dark:border-[#4A5562]"
+              )}
             >
-              <button
-                type="button"
-                onClick={() => toggleSection(sectionItem.id)}
-                className="pressable flex w-full items-center justify-between gap-4 px-4 py-3 text-left"
-                aria-expanded={expandedSections.includes(sectionItem.id)}
-              >
-                <span className="block min-w-0 text-sm font-medium text-foreground">{sectionItem.title}</span>
-                <ChevronRight
-                  className={cn(
-                    "h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-200",
-                    expandedSections.includes(sectionItem.id) && "rotate-90 text-primary"
-                  )}
-                />
-              </button>
+                <button
+                  type="button"
+                  onClick={() => toggleSection(sectionItem.id)}
+                  className="pressable flex w-full items-center justify-between gap-4 px-3 py-2.5 text-left"
+                  aria-expanded={expandedSections.includes(sectionItem.id)}
+                >
+                  <span className="block min-w-0 text-sm font-semibold text-foreground">{sectionItem.title}</span>
+                  <ChevronRight
+                    className={cn(
+                      "h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-200",
+                      expandedSections.includes(sectionItem.id) && "rotate-90"
+                    )}
+                  />
+                </button>
 
-              {expandedSections.includes(sectionItem.id) && (
-                <div className="border-t border-border/50 px-4 py-3">
-                  {sectionItem.description && (
-                    <p className="mb-3 text-sm leading-relaxed text-muted-foreground">
-                      {sectionItem.description}
-                    </p>
-                  )}
-                  <div className="space-y-2">
-                    <button
-                      type="button"
-                      onClick={() => onNavigate(sectionItem.id)}
-                      className="pressable group flex w-full items-center justify-between rounded-lg bg-primary/6 px-3 py-2.5 text-left transition-colors hover:bg-primary/10"
-                    >
-                      <span className="text-sm font-medium text-foreground">
-                        {language === "zh" ? "进入本章" : "Open Chapter"}
-                      </span>
-                      <ArrowRight className="h-4 w-4 text-muted-foreground transition-transform group-hover:translate-x-1 group-hover:text-primary" />
-                    </button>
-                    {sectionItem.items.map((item) => (
+                {expandedSections.includes(sectionItem.id) && (
+                  <div className="px-3 pb-3">
+                    {sectionItem.description && (
+                      <p className="px-1 pb-3 text-sm leading-6 text-muted-foreground">
+                        {sectionItem.description}
+                      </p>
+                    )}
+
+                    <div className="space-y-1.5">
                       <button
-                        key={item.id}
                         type="button"
-                        onClick={() => onNavigate(sectionItem.id, item.id)}
-                        className="pressable group flex w-full items-center justify-between rounded-lg px-3 py-2.5 text-left transition-colors hover:bg-primary/5"
+                        onClick={() => onNavigate(sectionItem.id)}
+                        className="pressable group flex w-full items-center justify-between rounded-lg bg-transparent px-3 py-2.5 text-left transition-all hover:bg-primary/5 dark:bg-transparent dark:hover:bg-[#141D27]"
                       >
-                        <span className="text-sm text-muted-foreground group-hover:text-foreground">{item.title}</span>
+                        <span className="manual-copy text-sm font-medium group-hover:text-foreground dark:group-hover:text-white">
+                          {language === "zh" ? "进入本章" : "Open Chapter"}
+                        </span>
                         <ArrowRight className="h-4 w-4 text-muted-foreground/70 transition-transform group-hover:translate-x-1 group-hover:text-primary" />
                       </button>
-                    ))}
+
+                      <div className="space-y-1">
+                      {sectionItem.items.map((item) => (
+                        <button
+                          key={item.id}
+                          type="button"
+                          onClick={() => onNavigate(sectionItem.id, item.id)}
+                          className="pressable group flex w-full items-center justify-between rounded-lg bg-transparent px-3 py-2.5 text-left transition-all hover:bg-primary/5 dark:bg-transparent dark:hover:bg-[#141D27]"
+                        >
+                          <span className="manual-copy text-sm font-medium group-hover:text-foreground dark:group-hover:text-white">{item.title}</span>
+                          <ArrowRight className="h-4 w-4 text-muted-foreground/70 transition-transform group-hover:translate-x-1 group-hover:text-primary" />
+                        </button>
+                      ))}
+                    </div>
                   </div>
                 </div>
-              )}
-            </div>
-          ))}
+                )}
+              </div>
+            ))}
+          </div>
         </div>
       </section>
     </article>
@@ -391,10 +400,18 @@ function QuickStartLanding({
 }
 
 // ── Section overview (no item selected) ───────────────────────────────────────
-function SectionOverview({ section, onNavigate }: { section: DocSection; onNavigate: DocsContentProps['onNavigate'] }) {
+function SectionOverview({
+  section,
+  onNavigate,
+  language,
+}: {
+  section: DocSection
+  onNavigate: DocsContentProps['onNavigate']
+  language: Language
+}) {
   return (
     <article>
-      <header className="mb-8 border-b border-border/50 pb-8">
+      <header className="mb-8 border-b border-border/35 pb-8 dark:border-[#39434F]/50">
         <h1 className="mb-3 text-2xl font-bold tracking-tight text-foreground lg:text-3xl">
           {section.title}
         </h1>
@@ -402,18 +419,27 @@ function SectionOverview({ section, onNavigate }: { section: DocSection; onNavig
           <p className="manual-copy text-[0.92rem] leading-6 sm:text-base sm:leading-7">{section.description}</p>
         )}
       </header>
-      <div className="space-y-2">
-        {section.items.map((item) => (
-          <button
-            key={item.id}
-            onClick={() => onNavigate(section.id, item.id)}
-            className="pressable group flex w-full items-center justify-between rounded-xl border border-border/50 bg-card/60 backdrop-blur-sm px-4 py-3 text-left transition-all hover:border-primary/50 hover:bg-primary/5 hover:shadow-sm"
-          >
-            <span className="text-sm font-medium text-foreground">{item.title}</span>
-            <ArrowRight className="h-4 w-4 text-muted-foreground transition-transform group-hover:translate-x-1 group-hover:text-primary" />
-          </button>
-        ))}
-      </div>
+
+      <section className="rounded-2xl border border-border/50 bg-card/60 p-4 backdrop-blur-sm dark:border-[#39434F] dark:bg-[#1B232D]">
+        <h2 className="manual-copy mb-3 text-sm font-semibold">
+          {language === "zh" ? "本章目录" : "In This Chapter"}
+        </h2>
+
+        <div className="space-y-2">
+          {section.items.map((item) => (
+            <button
+              key={item.id}
+              onClick={() => onNavigate(section.id, item.id)}
+              className="pressable group flex w-full items-center justify-between rounded-xl border border-border/50 bg-background px-3 py-2.5 text-left transition-all hover:border-primary/50 dark:border-[#39434F] dark:bg-[#060C13] dark:hover:border-[#1B6E87]"
+            >
+              <span className="manual-copy pr-3 text-sm font-medium">
+                {item.title}
+              </span>
+              <ChevronRight className="h-4 w-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-0.5 group-hover:text-foreground dark:text-[#A0A6AE] dark:group-hover:text-white" />
+            </button>
+          ))}
+        </div>
+      </section>
     </article>
   )
 }
@@ -452,7 +478,7 @@ function ItemPage({
       </div>
 
       {/* Title */}
-      <header className="mb-6 border-b border-border/50 pb-6">
+      <header className="mb-6 border-b border-border/35 pb-6 dark:border-[#39434F]/50">
         <h1 className="text-2xl font-bold tracking-tight text-foreground lg:text-3xl">
           {item.title}
         </h1>
@@ -465,8 +491,8 @@ function ItemPage({
 
       {item.children && item.children.length > 0 && (
         <section className="mb-8 lg:hidden">
-          <div className="rounded-2xl border border-border/50 bg-card/60 p-4 backdrop-blur-sm">
-            <h2 className="mb-3 text-sm font-semibold text-foreground">
+          <div className="rounded-2xl border border-border/50 bg-card/60 p-4 backdrop-blur-sm dark:border-[#39434F] dark:bg-[#1B232D]">
+            <h2 className="manual-copy mb-3 text-sm font-semibold">
               {language === "zh" ? "本节目录" : "In This Section"}
             </h2>
             <div className="space-y-2">
@@ -475,14 +501,11 @@ function ItemPage({
                   key={child.id}
                   type="button"
                   onClick={() => onNavigate(entry.sectionId, child.id)}
-                  className={cn(
-                    "pressable flex w-full items-center justify-between rounded-xl px-3 py-2.5 text-left transition-colors",
-                    activeChildId === child.id
-                      ? "bg-primary/10 text-foreground"
-                      : "bg-background/70 text-muted-foreground hover:bg-primary/5 hover:text-foreground"
-                  )}
+                  className="pressable flex w-full items-center justify-between rounded-xl border border-border/50 bg-background/70 px-3 py-2.5 text-left text-muted-foreground transition-colors hover:bg-primary/5 hover:text-foreground dark:border-[#39434F] dark:bg-[#060C13] dark:text-[#A0A6AE] dark:hover:bg-[#1B232D] dark:hover:text-white"
                 >
-                  <span className="text-sm font-medium">{child.title}</span>
+                  <span className="manual-copy text-sm font-medium">
+                    {child.title}
+                  </span>
                   <ChevronRight className="h-4 w-4 shrink-0" />
                 </button>
               ))}
@@ -493,7 +516,7 @@ function ItemPage({
 
       {/* Children as subsections (only for parent items) */}
       {item.children && item.children.length > 0 && (
-        <div className="space-y-8 border-t border-border/40 pt-8">
+        <div className="space-y-8 border-t border-border/30 pt-8 dark:border-[#39434F]/45">
           {item.children.map((child) => (
             <section key={child.id} id={child.id} className="scroll-mt-24">
               <h2 className="mb-4 text-lg font-semibold text-foreground lg:text-xl">
@@ -506,11 +529,11 @@ function ItemPage({
       )}
 
       {/* Prev / Next navigation */}
-      <footer className="mt-12 flex flex-col gap-4 border-t border-border/50 pt-8 sm:flex-row sm:justify-between">
+      <footer className="mt-12 flex flex-col gap-4 border-t border-border/35 pt-8 sm:flex-row sm:justify-between dark:border-[#39434F]/50">
         {prev ? (
           <button
             onClick={() => onNavigate(prev.sectionId, prev.item.id)}
-            className="pressable group flex flex-col items-start rounded-xl border border-border/50 bg-card/60 backdrop-blur-sm px-4 py-3.5 text-left transition-all hover:border-primary/50 hover:bg-primary/5 hover:shadow-sm sm:max-w-[45%]"
+            className="pressable group flex flex-col items-start rounded-xl border border-border/50 bg-card/60 backdrop-blur-sm px-4 py-3.5 text-left transition-all hover:border-primary/50 hover:shadow-sm sm:max-w-[45%] figma-state-card"
           >
             <span className="mb-1 flex items-center gap-1 text-xs text-muted-foreground">
               <ArrowLeft className="h-3 w-3" /> {language === "zh" ? "上一页" : "Previous"}
@@ -524,7 +547,7 @@ function ItemPage({
         {next && (
           <button
             onClick={() => onNavigate(next.sectionId, next.item.id)}
-            className="pressable group flex flex-col items-end rounded-xl border border-border/50 bg-card/60 backdrop-blur-sm px-4 py-3.5 text-right transition-all hover:border-primary/50 hover:bg-primary/5 hover:shadow-sm sm:max-w-[45%]"
+            className="pressable group flex flex-col items-end rounded-xl border border-border/50 bg-card/60 backdrop-blur-sm px-4 py-3.5 text-right transition-all hover:border-primary/50 hover:shadow-sm sm:max-w-[45%] figma-state-card"
           >
             <span className="mb-1 flex items-center gap-1 text-xs text-muted-foreground">
               {language === "zh" ? "下一页" : "Next"} <ArrowRight className="h-3 w-3" />
@@ -589,7 +612,7 @@ export function DocsContent({ activeSection, activeItemId, onNavigate, language,
 
           {/* Section overview when no item is selected */}
           {currentSection && !activeItemId && activeSection !== 'quick-start' && (
-            <SectionOverview section={currentSection} onNavigate={onNavigate} />
+            <SectionOverview section={currentSection} onNavigate={onNavigate} language={language} />
           )}
 
           {/* Item page */}

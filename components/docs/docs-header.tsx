@@ -78,7 +78,7 @@ function highlightMatch(text: string, query: string) {
       return (
         <mark
           key={`${part}-${index}`}
-          className="rounded bg-primary/15 px-0.5 text-foreground"
+          className="rounded bg-primary/15 px-0.5 text-foreground dark:bg-[#0E303F] dark:text-[#4197B5]"
         >
           {part}
         </mark>
@@ -213,7 +213,7 @@ export function DocsHeader({
   }
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border/50 bg-background/80 backdrop-blur-sm">
+    <header className="sticky top-0 z-40 bg-background/80 backdrop-blur-sm dark:bg-[#060C13]">
       <div aria-hidden="true" className="h-[env(safe-area-inset-top)] lg:hidden" />
 
       {/* Mobile Header */}
@@ -228,7 +228,6 @@ export function DocsHeader({
             alt="Sleep Assist® Pro"
             className="h-8 w-8 shrink-0 rounded-lg"
           />
-          <div className="h-5 w-px bg-border/60" />
           <span className="text-xs text-muted-foreground">{copy.manual}</span>
         </button>
         <Button
@@ -247,12 +246,12 @@ export function DocsHeader({
       </div>
 
       {/* Desktop Header */}
-      <div className="hidden lg:flex lg:h-14 lg:items-center">
+      <div className="hidden lg:flex lg:h-14 lg:items-stretch">
         {/* Logo - Desktop only */}
         <button
           type="button"
           onClick={handleGoHome}
-          className="pressable items-center gap-3 border-r border-border/50 px-6 text-left transition-opacity hover:opacity-85 lg:flex lg:h-14 lg:w-72 lg:shrink-0"
+          className="pressable items-center gap-3 px-6 text-left transition-opacity hover:opacity-85 lg:flex lg:w-72 lg:shrink-0 dark:bg-[#0F171F]"
         >
           <img
             src="/sleepassistpro-logo.svg"
@@ -272,21 +271,21 @@ export function DocsHeader({
             <DialogTrigger asChild>
               <Button 
                 variant="outline" 
-                className="h-9 w-full gap-2 text-sm text-muted-foreground"
+                className="h-9 w-full gap-2 text-sm text-muted-foreground dark:border-[#39434F]/70 dark:bg-[#060C13] dark:text-[#A0A6AE] dark:hover:border-[#1B6E87]/80 dark:hover:bg-[#1B232D] dark:hover:text-white"
               >
                 <Search className="h-4 w-4" />
                 <span>{copy.search}</span>
-                <kbd className="pointer-events-none ml-auto hidden h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex">
+                <kbd className="pointer-events-none ml-auto hidden h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex dark:border-[#39434F]/55 dark:bg-[#1B232D] dark:text-[#A0A6AE]">
                   <span className="text-xs">⌘</span>K
                 </kbd>
               </Button>
             </DialogTrigger>
-            <DialogContent className="max-w-lg p-0" showCloseButton={false}>
+            <DialogContent className="max-w-lg p-0 dark:border-[#39434F]/55 dark:bg-[#0F171F]" showCloseButton={false}>
               <DialogHeader className="sr-only">
                 <DialogTitle>{copy.searchTitle}</DialogTitle>
                 <DialogDescription>{copy.searchDescription}</DialogDescription>
               </DialogHeader>
-              <div className="flex items-center border-b border-border px-4">
+              <div className="flex items-center border-b border-border/40 px-4 dark:border-[#39434F]/55">
                 <Search className="h-4 w-4 text-muted-foreground" />
                 <Input
                   placeholder={copy.search}
@@ -306,7 +305,7 @@ export function DocsHeader({
                   <button
                     key={`${result.sectionId}-${result.itemId || 'main'}-${index}`}
                     onClick={() => handleSearchSelect(result.sectionId, result.itemId)}
-                    className="pressable flex w-full flex-col items-start rounded-lg px-3 py-2 text-left transition-colors hover:bg-accent"
+                    className="pressable flex w-full flex-col items-start rounded-lg px-3 py-2 text-left transition-colors hover:bg-accent dark:hover:bg-[#0E303F]"
                   >
                     <span className="text-sm font-medium text-foreground">
                       {highlightMatch(result.title, searchQuery)}
@@ -328,7 +327,7 @@ export function DocsHeader({
                       <button
                         key={section.id}
                         onClick={() => handleSearchSelect(section.id)}
-                        className="pressable flex w-full items-center justify-between rounded-lg px-3 py-2 text-left text-sm transition-colors hover:bg-accent"
+                        className="pressable flex w-full items-center justify-between rounded-lg px-3 py-2 text-left text-sm transition-colors hover:bg-accent dark:hover:bg-[#0E303F]"
                       >
                         <span className="text-foreground">{section.title}</span>
                       </button>
