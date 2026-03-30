@@ -77,9 +77,11 @@
 
 ![扫码页](/manual/chapter-02/onboarding/03-Alternative-Connection/qr-scan-overview.png)
 
-4. 扫描成功后，按页面提示继续连接。
+4. 连接成功后，按页面提示继续下一步。
 
-![扫码成功占位](/manual/chapter-02/onboarding/03-Alternative-Connection/qr-scan-success-placeholder.svg)
+5. 如果页面提示连接失败，请先确认手机蓝牙已经打开，再返回页面重新尝试连接。
+
+![蓝牙未开启导致连接失败](/manual/chapter-02/onboarding/03-Alternative-Connection/Unable%20to%20Connect%20-%20Retry%20Options.png)
 
 #### 2.3.3 手动输入设备号连接 {#manual-identify}
 
@@ -99,6 +101,10 @@
 ![输入错误提示](/manual/chapter-02/onboarding/03-Alternative-Connection/manual-bluetooth-id-error.png)
 
 5. 连接成功后，按页面提示继续下一步。
+
+6. 如果页面提示连接失败，请先确认手机蓝牙已经打开，再返回页面重新尝试连接。
+
+![蓝牙未开启导致连接失败](/manual/chapter-02/onboarding/03-Alternative-Connection/Unable%20to%20Connect%20-%20Retry%20Options.png)
 
 #### 2.3.4 还不想连接床 {#skip-connect}
 
@@ -124,7 +130,7 @@
 
 ### 2.5 首次注册智能床账号 {#register-account}
 
-如果您第一次使用智能床、还没有账号，就在这里完成注册。您可以用邮箱、Apple 或 Google 注册。注册并验证后，再继续看 {{jump-link|2.6 设置智能床|first-connection|setup-smart-bed}}。
+如果您第一次使用智能床、还没有账号，就在这里完成注册。您可以用邮箱、Apple 账号或 Google 账号注册。注册并验证后，再继续看 {{jump-link|2.6 设置智能床|first-connection|setup-smart-bed}}。
 
 #### 2.5.1 使用邮箱注册 {#register-email}
 
@@ -184,7 +190,7 @@
 
 ### 2.6 设置智能床 {#setup-smart-bed}
 
-账号准备好后，接着把智能床连好。蓝牙型和 Wi-Fi 型的步骤会有一点不同，连好以后还要确认是否打开睡眠数据跟踪。做完这里，再继续看 {{jump-link|2.7 完成首次资料填写|first-connection|first-profile}}。
+账号准备好后，接着把智能床连好。蓝牙床和 Wi-Fi 床的步骤会有一点不同，连好以后还要确认是否打开睡眠数据跟踪。做完这里，再继续看 {{jump-link|2.7 完成首次资料填写|first-connection|first-profile}}。
 
 #### 2.6.1 设置蓝牙型智能床 {#setup-bt-bed}
 

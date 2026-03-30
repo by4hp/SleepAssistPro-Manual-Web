@@ -129,9 +129,7 @@ If you have already started the connection flow, continue with {{jump-link|2.3 F
 
 ![QR scan page](/manual/chapter-02/onboarding/03-Alternative-Connection/qr-scan-overview.png)
 
-4. After the scan succeeds, follow the prompts to continue connecting.
-
-![QR scan success placeholder](/manual/chapter-02/onboarding/03-Alternative-Connection/qr-scan-success-placeholder.svg)`,
+4. After the connection succeeds, follow the prompts to continue to the next step.`,
           },
           {
             id: "manual-identify",

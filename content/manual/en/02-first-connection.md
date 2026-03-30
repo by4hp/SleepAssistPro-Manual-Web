@@ -77,9 +77,7 @@ If automatic identification does not find your bed, tap Try another way.
 
 ![QR scan page](/manual/chapter-02/onboarding/03-Alternative-Connection/qr-scan-overview.png)
 
-4. After the scan succeeds, follow the prompts to continue connecting.
-
-![QR scan success placeholder](/manual/chapter-02/onboarding/03-Alternative-Connection/qr-scan-success-placeholder.svg)
+4. After the connection succeeds, follow the prompts to continue to the next step.
 
 #### 2.3.3 Enter the Device ID Manually {#manual-identify}
 
