@@ -271,27 +271,27 @@ export function DocsHeader({
             <DialogTrigger asChild>
               <Button 
                 variant="outline" 
-                className="h-9 w-full gap-2 text-sm text-muted-foreground dark:border-[#39434F]/70 dark:bg-[#060C13] dark:text-[#A0A6AE] dark:hover:border-[#1B6E87]/80 dark:hover:bg-[#1B232D] dark:hover:text-white"
+                className="h-9 w-full gap-2 text-sm text-muted-foreground dark:border-[#39434F] dark:bg-[#0F171F] dark:text-[#A0A6AE] dark:hover:border-[#1B6E87]/80 dark:hover:bg-[#0F171F] dark:hover:text-white"
               >
                 <Search className="h-4 w-4" />
                 <span>{copy.search}</span>
-                <kbd className="pointer-events-none ml-auto hidden h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex dark:border-[#39434F]/55 dark:bg-[#1B232D] dark:text-[#A0A6AE]">
+                <kbd className="pointer-events-none ml-auto hidden h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex dark:border-[#39434F] dark:bg-[#060C13] dark:text-[#A0A6AE]">
                   <span className="text-xs">⌘</span>K
                 </kbd>
               </Button>
             </DialogTrigger>
-            <DialogContent className="max-w-lg p-0 dark:border-[#39434F]/55 dark:bg-[#0F171F]" showCloseButton={false}>
+            <DialogContent className="max-w-lg overflow-hidden p-0 dark:border-[#39434F] dark:bg-[#0F171F]" showCloseButton={false}>
               <DialogHeader className="sr-only">
                 <DialogTitle>{copy.searchTitle}</DialogTitle>
                 <DialogDescription>{copy.searchDescription}</DialogDescription>
               </DialogHeader>
-              <div className="flex items-center border-b border-border/40 px-4 dark:border-[#39434F]/55">
-                <Search className="h-4 w-4 text-muted-foreground" />
+              <div className="flex items-center border-b border-border/40 bg-background px-4 dark:border-[#39434F] dark:bg-[#060C13]">
+                <Search className="h-4 w-4 text-muted-foreground dark:text-[#A0A6AE]" />
                 <Input
                   placeholder={copy.search}
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="border-0 bg-transparent px-3 py-4 text-sm focus-visible:ring-0"
+                  className="border-0 bg-transparent px-3 py-4 text-sm shadow-none focus-visible:ring-0 dark:bg-transparent"
                   autoFocus
                 />
               </div>

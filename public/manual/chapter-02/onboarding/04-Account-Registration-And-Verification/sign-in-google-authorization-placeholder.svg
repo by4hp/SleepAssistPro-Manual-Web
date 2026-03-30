@@ -8,7 +8,6 @@
     font-size="28"
     font-weight="700"
   >
-    <tspan x="195">缺少图片</tspan>
-    <tspan x="195" dy="44">Google 授权页</tspan>
+    <tspan x="195">（图片缺失）</tspan>
   </text>
 </svg>

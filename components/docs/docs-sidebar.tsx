@@ -1,9 +1,10 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { ChevronRight, Moon, Sun } from "lucide-react"
+import { ChevronRight, Moon, Search, Sun } from "lucide-react"
 import { cn } from "@/lib/utils"
-import type { Language } from "@/lib/docs-data"
+import { Input } from "@/components/ui/input"
+import type { DocItem, DocSection, Language } from "@/lib/docs-data"
 import type { DocsDataByLanguage } from "@/lib/manual-content.types"
 import { Button } from "@/components/ui/button"
 import { DocsLanguageMenu } from "@/components/docs/docs-language-menu"
@@ -21,6 +22,24 @@ interface DocsSidebarProps {
   docsDataByLanguage: DocsDataByLanguage
 }
 
+interface SidebarSearchResult {
+  sectionId: string
+  itemId?: string
+  title: string
+  meta: string
+  content: string
+}
+
+function sanitizeSearchContent(content: string) {
+  return content
+    .replace(/\{\{download-button\|[^|]+\|([^|]+)\|([^}]+)\}\}/g, "$1 $2")
+    .replace(/\{\{jump-link\|([^|]+)\|[^|]+\|[^}]+\}\}/g, "$1")
+    .replace(/\{\{image-row\|([^|]*)\|[^|]+\|([^|]*)\|[^}]+\}\}/g, "$1 $2")
+    .replace(/!\[(.*?)\]\((.+?)\)/g, " $1 ")
+    .replace(/\s+/g, " ")
+    .trim()
+}
+
 function SidebarContent({
   activeSection,
   activeItemId,
@@ -34,16 +53,21 @@ function SidebarContent({
   docsDataByLanguage,
 }: DocsSidebarProps & { onClose?: () => void; isMobile?: boolean }) {
   const [expandedSections, setExpandedSections] = useState<string[]>([activeSection])
+  const [searchQuery, setSearchQuery] = useState("")
   const docsData = docsDataByLanguage[language]
 
   const copy = language === "zh"
     ? {
         enterChapter: "进入本章",
         toggleTheme: "切换主题",
+        search: "搜索文档...",
+        noResults: "未找到相关内容",
       }
     : {
         enterChapter: "Open chapter",
         toggleTheme: "Toggle theme",
+        search: "Search docs...",
+        noResults: "No results found",
       }
 
   useEffect(() => {
@@ -63,13 +87,103 @@ function SidebarContent({
 
   const handleNavigate = (sectionId: string, itemId?: string) => {
     onNavigate(sectionId, itemId)
+    setSearchQuery("")
     onClose?.()
   }
 
+  const buildSearchResults = () => {
+    const query = searchQuery.trim().toLowerCase()
+    if (!query) return [] as SidebarSearchResult[]
+
+    const results: SidebarSearchResult[] = []
+
+    const pushResult = ({
+      section,
+      item,
+      parentItem,
+    }: {
+      section: DocSection
+      item?: DocItem
+      parentItem?: DocItem
+    }) => {
+      const title = item?.title || section.title
+      const content = item?.content || section.description || ""
+      const haystack = `${title} ${sanitizeSearchContent(content)}`.toLowerCase()
+      if (!haystack.includes(query)) return
+
+      results.push({
+        sectionId: section.id,
+        itemId: item?.id,
+        title,
+        meta: parentItem ? `${section.title} · ${parentItem.title}` : section.title,
+        content,
+      })
+    }
+
+    docsData.forEach((section) => {
+      pushResult({ section })
+
+      section.items.forEach((item) => {
+        pushResult({ section, item })
+
+        item.children?.forEach((child) => {
+          pushResult({ section, item: child, parentItem: item })
+        })
+      })
+    })
+
+    const seen = new Set<string>()
+    return results.filter((result) => {
+      const key = `${result.sectionId}-${result.itemId || "section"}`
+      if (seen.has(key)) return false
+      seen.add(key)
+      return true
+    }).slice(0, 8)
+  }
+
+  const searchResults = buildSearchResults()
+
   return (
     <div className="flex h-full flex-col overflow-hidden">
+      {isMobile && (
+        <div className="shrink-0 px-4 pb-2 pt-4">
+          <div className="relative">
+            <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground dark:text-[#A0A6AE]" />
+            <Input
+              type="search"
+              value={searchQuery}
+              onChange={(event) => setSearchQuery(event.target.value)}
+              placeholder={copy.search}
+              className="h-10 rounded-xl border-border/60 bg-background pl-9 dark:border-[#39434F] dark:bg-[#060C13]"
+            />
+          </div>
+        </div>
+      )}
+
       {/* Navigation — native scroll, fills remaining height */}
       <nav className="flex-1 overflow-y-auto px-3 py-4 scrollbar-thin mt-0">
+        {isMobile && searchQuery.trim() ? (
+          <div className="space-y-1 px-1">
+            {searchResults.length === 0 ? (
+              <p className="rounded-xl px-3 py-4 text-sm text-muted-foreground dark:text-[#A0A6AE]">
+                {copy.noResults}
+              </p>
+            ) : (
+              searchResults.map((result, index) => (
+                <button
+                  key={`${result.sectionId}-${result.itemId || "section"}-${index}`}
+                  onClick={() => handleNavigate(result.sectionId, result.itemId)}
+                  className="pressable flex w-full flex-col items-start rounded-xl px-3 py-2.5 text-left transition-colors hover:bg-primary/5 dark:hover:bg-[#1B232D]"
+                >
+                  <span className="text-sm font-medium text-foreground">{result.title}</span>
+                  <span className="mt-0.5 text-xs text-muted-foreground dark:text-[#A0A6AE]">
+                    {result.meta}
+                  </span>
+                </button>
+              ))
+            )}
+          </div>
+        ) : (
         <div className="space-y-1">
           {docsData.map((section) => {
             const isSectionExpanded = expandedSections.includes(section.id)
@@ -166,6 +280,7 @@ function SidebarContent({
             )
           })}
         </div>
+        )}
       </nav>
 
       {/* Footer */}

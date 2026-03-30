@@ -182,7 +182,7 @@
 
 ![注册页](/manual/chapter-02/onboarding/04-Account-Registration-And-Verification/sign-up-empty-form.png)
 
-2. 按系统页面完成 Google 授权。
+2. 按系统页面完成 Google 授权。（图片缺失）
 
 ![Google 授权页](/manual/chapter-02/onboarding/04-Account-Registration-And-Verification/sign-in-google-authorization-placeholder.svg)
 

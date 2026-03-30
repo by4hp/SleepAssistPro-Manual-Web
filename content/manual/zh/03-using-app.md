@@ -38,7 +38,7 @@
 
 ![Google 登录入口](/manual/chapter-03/login/Pasted%20image%2020260325161315.png)
 
-2. 按系统页面完成 Google 授权。
+2. 按系统页面完成 Google 授权。（图片缺失）
 
 ![Google 授权页](/manual/chapter-03/login/sign-in-google-authorization-placeholder.svg)
 
