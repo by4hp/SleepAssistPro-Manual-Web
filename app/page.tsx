@@ -11,15 +11,13 @@ export default async function DocsPage() {
   }
 
   const cookieStore = await cookies()
-  const initialLanguage = cookieStore.get("sleepassistpro-language")?.value === "en" ? "en" : "zh"
-  const initialTheme = cookieStore.get("sleepassistpro-theme")?.value === "light" ? "light" : "dark"
+  const initialLanguage = cookieStore.get("sleepassistpro-language")?.value === "zh" ? "zh" : "en"
   const docsDataByLanguage = getDocsDataByLanguage()
 
   return (
     <DocsPageClient
       docsDataByLanguage={docsDataByLanguage}
       initialLanguage={initialLanguage}
-      initialTheme={initialTheme}
     />
   )
 }

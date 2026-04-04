@@ -232,3 +232,120 @@
     border: 2px solid #1b6e87;
   }
 }
+
+@media print {
+  @page {
+    size: A4;
+    margin: 14mm 12mm 16mm;
+  }
+
+  :root,
+  .dark {
+    --background: #ffffff;
+    --foreground: #111111;
+    --card: #ffffff;
+    --card-foreground: #111111;
+    --popover: #ffffff;
+    --popover-foreground: #111111;
+    --primary: #111111;
+    --primary-foreground: #ffffff;
+    --secondary: #f5f5f5;
+    --secondary-foreground: #111111;
+    --muted: #f5f5f5;
+    --muted-foreground: #666666;
+    --accent: #f2f7f9;
+    --accent-foreground: #111111;
+    --border: #d4d4d4;
+    --input: #d4d4d4;
+    --ring: #999999;
+  }
+
+  html,
+  body {
+    background: #ffffff !important;
+    color: #111111 !important;
+  }
+
+  .print-hidden,
+  .site-chrome {
+    display: none !important;
+  }
+
+  .reader-print-shell {
+    max-width: none !important;
+    padding: 0 !important;
+  }
+
+  .reader-mode-page {
+    color: #111111 !important;
+  }
+
+  .reader-mode-page .manual-copy,
+  .reader-mode-page li,
+  .reader-mode-page p {
+    font-size: 11pt !important;
+    line-height: 1.6 !important;
+  }
+
+  .reader-mode-page h1 {
+    font-size: 24pt !important;
+    line-height: 1.2 !important;
+  }
+
+  .reader-mode-page h2 {
+    font-size: 18pt !important;
+    line-height: 1.25 !important;
+  }
+
+  .reader-mode-page h3 {
+    font-size: 14pt !important;
+    line-height: 1.3 !important;
+  }
+
+  .reader-mode-page h4 {
+    font-size: 12pt !important;
+    line-height: 1.35 !important;
+  }
+
+  .reader-mode-page img {
+    max-width: 62% !important;
+    max-height: 210mm !important;
+    object-fit: contain !important;
+  }
+
+  .reader-mode-page figure {
+    margin-block: 8pt !important;
+  }
+
+  .reader-mode-page img,
+  .reader-mode-page figure,
+  .reader-mode-page section,
+  .reader-mode-page h2,
+  .reader-mode-page h3,
+  .reader-mode-page h4 {
+    break-inside: avoid;
+  }
+
+  .reader-cover,
+  .reader-contents {
+    page-break-inside: avoid;
+  }
+
+  .reader-mode-page button.pressable {
+    background: transparent !important;
+    border: 0 !important;
+    color: #111111 !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    text-decoration: none !important;
+  }
+
+  .reader-mode-page .reader-toc-link {
+    display: block;
+    width: 100%;
+  }
+
+  .reader-mode-page svg {
+    display: none !important;
+  }
+}

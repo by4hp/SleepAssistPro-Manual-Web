@@ -1,31 +1,31 @@
 # 1. Quick Start {#quick-start}
 
-If you are just getting started with Sleep Assist® Pro, begin with this chapter. It will help you download the app, connect your smart bed, and reach the Home page so you can start using it.
+New to Sleep Assist® Pro? This chapter helps you download the app, connect your bed, and get to the home screen — all in a few minutes.
 
-### 1.1 Download and Install the App {#download-install}
+### 1.1 Download & Install the App {#download-install}
 
-Choose the download option that matches your phone, then follow the prompts to finish installation.
+Pick the download option for your phone, then you're good to go once it's installed.
 
 #### 1.1.1 Download on iOS {#download-ios}
 
-Open the iOS App Store, search for Sleep Assist® Pro, then download and install it.
+Open the iOS App Store, search for Sleep Assist® Pro, and download it.
 
-{{download-button|iOS|Download on the App Store|For iPhone and iPad. After downloading, follow the prompts to finish installation.}}
+{{download-button|iOS|Download on the App Store|For iPhone and iPad. Follow the on-screen prompts to complete installation.}}
 
 #### 1.1.2 Download on Android {#download-android}
 
-Open Google Play, search for Sleep Assist® Pro, then download and install it.
+Open Google Play, search for Sleep Assist® Pro, and download it.
 
-{{download-button|Android|Download on Google Play|For Android devices. After downloading, follow the prompts to finish installation.}}
+{{download-button|Android|Download on Google Play|For Android devices. Follow the on-screen prompts to complete installation.}}
 
-### 1.2 What Happens the First Time You Use It {#first-use-steps}
+### 1.2 What to Expect the First Time {#first-use-steps}
 
-The first time you use the app, you will usually go through the steps below in order:
+After opening the app for the first time, here's the general flow:
 
 1. Download and open the app
 2. Find and connect your bed
-3. If you are connecting a smart bed, sign up for an account or sign in first, then finish the remaining first-time setup
-4. If you are connecting an adjustable bed, you do not need to sign up or sign in after the connection is complete, and you can start using it right away
-5. When everything is complete, enter the Home page and start daily use
+3. If you have a smart bed, sign up or sign in, then complete the initial setup
+4. If you have an adjustable bed, no account needed — you can start using it right after connecting
+5. Land on the home screen and start using the app
 
-If the app is already installed and you are ready to start connecting your bed, go straight to {{jump-link|2.2 Start Connecting Your Bed|first-connection|start-connection}}.
+Already installed and ready to connect? Jump straight to {{jump-link|2.2 Start Connecting Your Bed|first-connection|start-connection}}.

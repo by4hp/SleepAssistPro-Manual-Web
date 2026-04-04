@@ -1,77 +1,77 @@
 # 5. System Settings {#system-settings}
 
-If you want to keep refining the overall experience, start with this chapter. It walks you through managing bed settings, adjusting sleep preferences, connecting health data, updating notifications, and changing the AI assistant name.
+Want to fine-tune your experience? This chapter covers bed settings, sleep preferences, health data connections, notifications, and the AI assistant name.
 
 ### 5.1 Open Settings {#open-settings}
 
-If you want to change bed settings, notifications, or account-related items, start here by opening Settings. As long as you are still signed in, the Settings page can usually be opened even if the bed is temporarily disconnected.
+Need to change bed settings, notifications, or account info? Start here. As long as you're signed in, the Settings page usually opens even if the bed is temporarily disconnected.
 
-1. On the Home page, tap Settings.
+1. On the home screen, tap Settings.
 
 ![Settings entry](/manual/chapter-05/open-settings/settings-entry.png)
 
-2. Here you can change bed settings, adjust sleep goals, connect health data, manage notifications, or handle account-related items.
+2. From here you can change bed settings, adjust sleep goals, connect health data, manage notifications, or handle account-related items.
 
-![Settings Home page](/manual/chapter-05/open-settings/settings-home-overview.png)
+![Settings home](/manual/chapter-05/open-settings/settings-home-overview.png)
 
 ### 5.2 Manage Bed Settings {#bed-settings}
 
-In Bed Settings, you can view the most common settings related to the bed you are currently using. This includes bed side, anti-snore sensitivity, Sleep Data Tracking, disconnecting the bed, and checking hardware updates.
+Bed Settings lets you view and change common settings for your current bed — bed side, anti-snore sensitivity, Sleep Data Tracking, disconnecting, and hardware updates.
 
 #### 5.2.1 Open Bed Settings {#open-bed-settings}
 
-After you enter, you will see the most frequently used settings for the current smart bed. Confirm first which bed you are working on, then decide whether you want to change bed side, anti-snore settings, Sleep Data Tracking, or handle disconnection and updates.
+You'll see the most-used settings for your current smart bed. Confirm which bed you're working with, then decide what to change.
 
 1. On the Settings page, tap Bed Settings.
 
 ![Bed Settings entry](/manual/chapter-05/bed-settings/bed-settings-entry.png)
 
-2. After opening Bed Settings, confirm which item you want to change. This page usually shows Bed Side, Anti-Snore Sensitivity, Disconnect Bed, Sleep Data Tracking, and Hardware Update. The current Bed ID is also shown near the bottom so you can verify which bed you are managing.
+2. The page typically shows Bed Side, Anti-Snore Sensitivity, Disconnect Bed, Sleep Data Tracking, and Hardware Update. The Bed ID near the bottom lets you verify which bed you're managing.
 
 ![Bed Settings overview](/manual/chapter-05/bed-settings/bed-settings-overview.png)
 
 #### 5.2.2 Change Bed Side {#bed-side-settings}
 
-If the side you sleep on does not match the current setting, change it here. Once the correct side is selected, side-related settings and data will match you more clearly.
+Sleeping side doesn't match the current setting? Change it here. Getting this right makes side-related settings and data more accurate.
 
 1. Tap Bed Side.
-2. In the Bed Side panel, choose Center, Left, or Right.
+2. In the panel, choose Center, Left, or Right.
 3. Tap Confirm to save.
 
 ![Bed side settings](/manual/chapter-05/bed-settings/bed-settings-bed-side-drawer.png)
 
 #### 5.2.3 Adjust Anti-Snore Sensitivity {#anti-snore-settings}
 
-If you want the bed to react more quickly when snoring is detected, adjust the anti-snore sensitivity here. If you do not want to use this feature for now, you can also turn it off directly.
+Want the bed to respond faster when snoring is detected? Adjust the sensitivity here. If you'd rather not use it for now, just turn it off.
 
 1. Tap Anti-Snore Sensitivity.
-2. Use the Detect Snoring switch to decide whether anti-snore detection is on.
-3. If it stays on, choose Low, Medium, or High.
+2. Use the Detect Snoring toggle to turn it on or off.
+3. If it's on, choose Low, Medium, or High.
 
 ![Anti-snore sensitivity](/manual/chapter-05/bed-settings/bed-settings-anti-snore-sensitivity.png)
 
 #### 5.2.4 Control Sleep Data Tracking {#sleep-tracking-settings}
 
-If you want to keep viewing new sleep data in the app, Sleep Data Tracking needs to stay on. After it is turned off, you can still view data that already exists, but new sleep data will no longer continue syncing in.
+To keep seeing new sleep data in the app, keep Sleep Data Tracking on. If you turn it off, existing data stays, but new data won't sync.
 
 1. Stay on the Bed Settings page.
-2. Turn the Sleep Data Tracking switch on or off directly.
+2. Toggle Sleep Data Tracking on or off.
 
-After it is turned off, the app stops recording new bed sleep data. After you turn it back on, only future data will continue to be written in.
+When off, the app stops recording new sleep data. When you turn it back on, only future data will continue syncing.
 
 #### 5.2.5 Disconnect the Current Bed {#disconnect-bed}
 
-If you are no longer using the current bed, or you want to connect a different bed instead, disconnect it here. After disconnection, the current account can usually still view historical data, but it will not continue receiving new bed data until the bed is connected again.
+No longer using this bed, or switching to a different one? Disconnect it here. Your account can usually still see historical data, but no new bed data comes in until you reconnect.
 
 1. Tap Disconnect Bed.
-2. Read the prompt again in the confirmation dialog.
-3. If everything looks correct, tap Disconnect.
+2. Review the prompt in the confirmation dialog.
+3. All good? Tap Disconnect.
 
-![Disconnect bed confirmation dialog](/manual/chapter-05/bed-settings/bed-settings-disconnect-dialog.png)
+![Disconnect bed confirmation](/manual/chapter-05/bed-settings/bed-settings-disconnect-dialog.png)
 
 #### 5.2.6 Install a Hardware Update {#hardware-update}
 
-If you see New here, a newer hardware version is available for the bed. Updates usually fix issues or add capabilities. After the update starts, it is best to stay near the bed until the progress is finished.
+See "New" here? That means a hardware update is available for the bed. Updates usually fix issues or add capabilities. Once it starts, stay near the bed until it's done.
 
 1. Tap Hardware Update.
 
@@ -79,50 +79,50 @@ If you see New here, a newer hardware version is available for the bed. Updates 
 
 2. In the Bed Update dialog, tap Update Now.
 
-3. Follow the prompts, stay near the bed, and wait for the progress to finish.
+3. Stay near the bed and wait for the progress to finish.
 
 ![Hardware update progress](/manual/chapter-05/bed-settings/bed-settings-hardware-update-progress.png)
 
-4. If the update fails, you can tap Try Again to restart it, or tap Later to handle it another time.
+4. If the update fails, tap Try Again to retry, or Later to come back to it.
 
-![Hardware update failed dialog](/manual/chapter-05/bed-settings/bed-settings-hardware-update-failed-dialog.png)
+![Hardware update failed](/manual/chapter-05/bed-settings/bed-settings-hardware-update-failed-dialog.png)
 
 ### 5.3 Sleep Goal {#sleep-goal}
 
-If you want the app's recommendations and goals to fit your routine more closely, set Sleep Goal here. The main items are target sleep duration, sleep type, and improvement priority.
+Want the app's recommendations to better match your routine? Set your Sleep Goal here — target sleep duration, sleep type, and improvement priority.
 
-#### 5.3.1 Set Your Target Sleep Duration {#sleep-goal-duration}
+#### 5.3.1 Set Target Sleep Duration {#sleep-goal-duration}
 
-If you want to adjust how long you hope to sleep each night, set it here. Once it is set, features related to sleep planning can follow your goal more naturally.
+Adjust how long you want to sleep each night. Once set, sleep-related features will align with your goal.
 
 1. On the Settings page, tap Sleep Goal.
-2. In Sleep Goal, choose how long you want to sleep each night. When adjusting the target sleep duration, you will usually see a time picker like the one below.
+2. Choose your preferred sleep duration.
 
 ![Target sleep duration](/manual/chapter-05/sleep-goal/sleep-goals-duration-picker.png)
 
-#### 5.3.2 Set Sleep Type and Improvement Priority {#sleep-goal-type}
+#### 5.3.2 Set Sleep Type & Improvement Priority {#sleep-goal-type}
 
-If you want the app to understand your routine and the issue you care about most, add your sleep type and improvement priority here. These settings are more personal, so you do not need to overthink them. Start with the options that feel closest to you.
+Help the app understand your routine and what matters most to you. Don't overthink it — just pick what's closest.
 
-1. Choose the sleep type that fits you best, such as Lion, Bear, or Wolf.
-2. Choose the improvement goal you want to prioritize right now.
+1. Choose the sleep type that fits you best — Lion, Bear, or Wolf.
+2. Choose the improvement goal you want to focus on right now.
 3. Tap Confirm to save.
 
 ![Sleep Goal overview](/manual/chapter-05/sleep-goal/sleep-goals-overview.png)
 
 ### 5.4 Sleeper Tags {#sleeper-tags}
 
-If you want to add your sleep habits, lifestyle, and personal preferences, do it here. The closer these selections match your real situation, the more relevant later content and suggestions will usually feel.
+Want to share your sleep habits, lifestyle, and preferences? Add them here. The closer these match you, the more relevant your content and suggestions will be.
 
 1. On the Settings page, tap Sleeper Tags.
-2. Choose the tags that match you, such as lifestyle habits, sleep challenges, or personal preferences.
+2. Pick the tags that fit — lifestyle habits, sleep challenges, or personal preferences.
 3. Tap Confirm to save.
 
 ![Sleeper Tags](/manual/chapter-05/sleeper-tags/sleeper-tags-overview.png)
 
 ### 5.5 Health Data Integration {#apple-health}
 
-If you want to sync related data from Sleep Assist® Pro to the health platform on your phone, turn on the matching health integration here. Three options are currently supported: Apple Health Integration on iPhone, plus Health Connect and Samsung Health Integration on Android. Turning an integration off stops future syncing only. It does not delete historical data that has already been written.
+Want to sync Sleep Assist® Pro data to your phone's health platform? Turn on the matching integration here. Currently supported: Apple Health Integration on iPhone, plus Health Connect and Samsung Health Integration on Android. Turning off an integration only stops future syncing — historical data already written stays intact.
 
 #### 5.5.1 iPhone: Apple Health Integration {#apple-health-ios}
 
@@ -130,115 +130,115 @@ If you want to sync related data from Sleep Assist® Pro to the health platform 
 
 ![Apple Health Integration entry](/manual/chapter-05/apple-health/apple-health-integration-disabled-state.png)
 
-2. On the Apple Health authorization page, turn on the permissions you need, then choose Allow.
+2. On the Apple Health authorization page, turn on the permissions you need and tap Allow.
 
-![Apple Health authorization page](/manual/chapter-05/apple-health/apple-health-sharing-permissions.png)
+![Apple Health authorization](/manual/chapter-05/apple-health/apple-health-sharing-permissions.png)
 
-3. After it is enabled successfully, the page shows the active state. If you later turn the switch off, the system stops writing new health data, but history already written to Apple Health stays there.
+3. Once enabled, the page shows the active state. If you later turn it off, no new data gets written, but what's already there stays.
 
 ![Apple Health Integration enabled](/manual/chapter-05/apple-health/apple-health-enabled-state.png)
 
 #### 5.5.2 Android: Open Health Integration {#apple-health-android}
 
-If you are using an Android device, open the Health Integration page first. There you will see two available options: Health Connect Integration and Samsung Health Integration.
+On Android, open the Health Integration page first. You'll see two options: Health Connect Integration and Samsung Health Integration.
 
 1. On the Settings page, tap Health Integration.
-2. After the page opens, choose Health Connect Integration or Samsung Health Integration based on the platform you want to use.
+2. Choose Health Connect Integration or Samsung Health Integration based on your platform.
 
 ![Android health integration overview](/manual/chapter-05/health-integration/android/android-health-integration-overview.png)
 
 #### 5.5.3 Android: Health Connect {#health-connect-android}
 
-If your phone supports Health Connect, you can use this method to sync related health data.
+If your phone supports Health Connect, use this to sync health data.
 
 1. On the Health Integration page, tap Health Connect Integration.
-2. After the page opens, turn on Enable Health Connect first.
+2. Turn on Enable Health Connect.
 
 ![Health Connect page](/manual/chapter-05/health-integration/android/health-connect-integration-disabled.png)
 
-3. After it is turned on, the page will prompt you with the next steps. Tap Open the Health Connect app, then follow the prompts to find Sleep Assist app and complete authorization.
+3. Follow the on-screen prompts. Tap Open the Health Connect app, find Sleep Assist app, and complete authorization.
 
 ![Health Connect enabled](/manual/chapter-05/health-integration/android/health-connect-integration-enabled.png)
 
-4. On the Health Connect permissions page, turn on the health data permissions you want to allow for reading or writing. When you are done, return to the app.
+4. On the Health Connect permissions page, turn on the read/write permissions you need, then return to the app.
 
-![Health Connect permissions page](/manual/chapter-05/health-integration/android/health-connect-permissions.png)
+![Health Connect permissions](/manual/chapter-05/health-integration/android/health-connect-permissions.png)
 
 #### 5.5.4 Android: Samsung Health Integration {#samsung-health-android}
 
-If you use Samsung Health, finish authorization and turn on syncing here.
+Using Samsung Health? Complete authorization and turn on syncing here.
 
 1. On the Health Integration page, tap Samsung Health Integration.
-2. After the page opens, turn on Enable Samsung Health first.
+2. Turn on Enable Samsung Health.
 
 ![Samsung Health page](/manual/chapter-05/health-integration/android/samsung-health-integration-disabled.png)
 
-3. After it is turned on, tap Open the Samsung Health app, then follow the prompts to go to Settings > Apps, and choose Sleep Assist app to complete authorization.
+3. Tap Open the Samsung Health app, go to Settings > Apps, and select Sleep Assist app to authorize.
 
 ![Samsung Health enabled](/manual/chapter-05/health-integration/android/samsung-health-integration-enabled.png)
 
-4. On the Samsung Health permissions page, turn on the permissions you want to share, then tap Done to finish authorization.
+4. On the Samsung Health permissions page, turn on the permissions you want to share, then tap Done.
 
-![Samsung Health permissions page](/manual/chapter-05/health-integration/android/samsung-health-permissions.png)
+![Samsung Health permissions](/manual/chapter-05/health-integration/android/samsung-health-permissions.png)
 
 ### 5.6 Push Notifications {#push-notifications}
 
-If you want to adjust reminders, configure notifications here. This includes morning reminders, evening reminders, sync reminders, and sleep reports sent by email.
+Want to adjust your reminders? Configure notifications here — morning and evening reminders, sync alerts, and email sleep reports.
 
 #### 5.6.1 Turn On Notification Permission {#push-notification-permission}
 
-If your phone's overall notification permission is not turned on, the later morning reminders, evening reminders, and sync reminders will not work normally. It is best to handle this first before continuing to the other notification settings below.
+If your phone's notification permission isn't on, none of the reminders below will work. Best to take care of this first.
 
 1. On the Settings page, tap Push Notifications.
-2. Turn on Receive Push Notifications first. If the system shows a notification permission prompt, allow it. If no prompt appears, open your phone's system settings and enable notification permission there.
+2. Turn on Receive Push Notifications. If a system prompt appears, tap Allow. If not, go to your phone's system settings to enable notifications.
 
 ![Push Notifications permission](/manual/chapter-05/push-notifications/push-notifications-permission.png)
 
 #### 5.6.2 Set Morning Reminders {#morning-notifications}
 
-If you want a reminder at a fixed time in the morning to review your sleep report, set it here. You can decide whether to enable it and what time works best.
+Want a reminder each morning to check your sleep report? Set it here.
 
-1. If you want a morning reminder to review your sleep report, turn Morning Notifications on or off as needed.
+1. Turn Morning Notifications on or off as needed.
 2. Choose the reminder time in Morning Notifications Time.
 
 ![Morning Notifications](/manual/chapter-05/push-notifications/push-notifications-morning.png)
 
 #### 5.6.3 Set Evening Reminders {#evening-notifications}
 
-If you want a reminder at a fixed time in the evening to get ready for sleep, set it here. This reminder is more suitable for users who want to gradually stabilize their schedule.
+Want a nudge in the evening to wind down? Set it here. Great for building a more consistent routine.
 
-1. If you want an evening reminder, turn Evening Notifications on or off as needed.
+1. Turn Evening Notifications on or off as needed.
 2. Choose the reminder time in Evening Notifications Time.
 
 ![Evening Notifications](/manual/chapter-05/push-notifications/push-notifications-evening.png)
 
 #### 5.6.4 Set Sync Reminders {#sync-reminders}
 
-If you are worried that the bed may go several days without syncing data to the app, turn this reminder on. That way you can notice long sync gaps earlier.
+Worried the bed might go days without syncing? Turn this on to catch long gaps early.
 
-1. If you want a reminder when the bed has not synced data for several days, turn on Sleep Assist Sync Reminders.
+1. Turn on Sleep Assist Sync Reminders.
 
 ![Sleep Assist Sync Reminders](/manual/chapter-05/push-notifications/push-notifications-sync-reminders.png)
 
 #### 5.6.5 Set Email Reports {#email-reports}
 
-If you prefer receiving sleep report access by email, turn this on. After the frequency is set, the system sends the report to your email on the schedule you choose.
+Prefer getting your sleep report by email? Turn this on and pick a frequency — the system sends reports on schedule.
 
-1. If you want to receive a web sleep report entry by email, turn on Sleep Report via Email.
-2. Choose the frequency in Notification frequency. The system sends your sleep report to your email based on the option you choose.
+1. Turn on Sleep Report via Email.
+2. Choose the frequency in Notification frequency.
 
 ![Sleep Report via Email](/manual/chapter-05/push-notifications/push-notifications-email-report.png)
 
 ### 5.7 AI Settings {#ai-settings}
 
-If you want to change the display name of the AI assistant in AI Chat, adjust it here directly.
+Want to change the AI assistant's display name in AI Chat? Adjust it here.
 
 1. On the Settings page, tap AI Settings.
 2. Tap Sleep Assistant's Name.
-3. Enter the name you want to use. After the name edit page opens, you will usually see an input screen like the one below.
+3. Enter the name you'd like to use.
 
 ![AI name edit page](/manual/chapter-05/ai-settings/ai-settings-edit-name.png)
 
-4. Save and return by following the prompts on the page. After the change is complete, the new AI assistant name will appear in AI Chat.
+4. Save and go back. The new name will show up in AI Chat.
 
 ![AI Settings overview](/manual/chapter-05/ai-settings/ai-settings-overview.png)

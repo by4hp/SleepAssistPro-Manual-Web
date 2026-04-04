@@ -14,6 +14,7 @@ interface DocsContentProps {
   onNavigate: (sectionId: string, itemId?: string) => void
   language: Language
   docsDataByLanguage: DocsDataByLanguage
+  readerMode?: boolean
 }
 
 // Render inline bold (**text**) within a string
@@ -562,8 +563,186 @@ function ItemPage({
   )
 }
 
+function ReaderModePage({
+  docsData,
+  language,
+}: {
+  docsData: DocSection[]
+  language: Language
+}) {
+  const copy = language === "zh"
+    ? {
+        title: "Sleep Assist® Pro 用户手册",
+        subtitle: "长网页阅读模式",
+        description:
+          "这里会把整份手册按章节串成一页，适合连续阅读、校对文案，或直接导出为 PDF。",
+        sectionNav: "章节导航",
+        contents: "目录",
+        version: "版本 1.0.0",
+        chapterCount: `${docsData.length} 个章节`,
+      }
+    : {
+        title: "Sleep Assist® Pro User Manual",
+        subtitle: "Reader Mode",
+        description:
+          "This mode lays out the full manual as one continuous page for long-form reading, copy review, or PDF export.",
+        sectionNav: "Chapter navigation",
+        contents: "Contents",
+        version: "Version 1.0.0",
+        chapterCount: `${docsData.length} chapters`,
+      }
+
+  const handleReaderJump = (sectionId: string, itemId?: string) => {
+    const targetId = itemId || `reader-${sectionId}`
+    document.getElementById(targetId)?.scrollIntoView({ behavior: "smooth", block: "start" })
+  }
+
+  return (
+    <article className="reader-mode-page">
+      <header className="reader-cover mb-8 overflow-hidden rounded-[2rem] border border-border/50 bg-[radial-gradient(circle_at_top_left,rgba(65,151,181,0.16),transparent_38%),linear-gradient(180deg,color-mix(in_oklch,var(--card)_85%,var(--background)),color-mix(in_oklch,var(--card)_92%,transparent))] p-6 backdrop-blur-sm dark:border-[#39434F] dark:bg-[radial-gradient(circle_at_top_left,rgba(65,151,181,0.14),transparent_34%),linear-gradient(180deg,#1B232D,#0F171F)] print:mb-8 print:break-after-page print:rounded-none print:border-none print:bg-transparent print:p-0">
+        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.26em] text-muted-foreground">
+          {copy.subtitle}
+        </p>
+        <h1 className="mb-4 max-w-3xl text-3xl font-bold tracking-tight text-foreground lg:text-[2.7rem] lg:leading-tight">
+          {copy.title}
+        </h1>
+        <p className="manual-copy max-w-3xl text-[0.9rem] leading-7 sm:text-[0.95rem]">
+          {copy.description}
+        </p>
+        <div className="mt-6 flex flex-wrap gap-2 print:mt-8">
+          <span className="rounded-full border border-border/60 bg-background/70 px-3 py-1 text-xs font-medium text-muted-foreground dark:border-[#39434F] dark:bg-[#060C13]">
+            Sleep Assist® Pro
+          </span>
+          <span className="rounded-full border border-border/60 bg-background/70 px-3 py-1 text-xs font-medium text-muted-foreground dark:border-[#39434F] dark:bg-[#060C13]">
+            {copy.version}
+          </span>
+          <span className="rounded-full border border-border/60 bg-background/70 px-3 py-1 text-xs font-medium text-muted-foreground dark:border-[#39434F] dark:bg-[#060C13]">
+            {copy.chapterCount}
+          </span>
+        </div>
+      </header>
+
+      <section className="reader-contents mb-10 rounded-[1.75rem] border border-border/50 bg-card/60 p-5 backdrop-blur-sm dark:border-[#39434F] dark:bg-[#1B232D] print:mb-8 print:break-after-page print:rounded-none print:border-none print:bg-transparent print:p-0">
+        <div className="mb-4 flex items-center justify-between gap-4">
+          <h2 className="manual-copy text-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+            {copy.contents}
+          </h2>
+          <p className="print-hidden text-xs text-muted-foreground">{copy.sectionNav}</p>
+        </div>
+
+        <div className="grid gap-3 sm:grid-cols-2">
+          {docsData.map((section) => (
+            <div
+              key={section.id}
+              className="rounded-2xl border border-border/50 bg-background/70 p-4 dark:border-[#39434F] dark:bg-[#060C13] print:break-inside-avoid print:rounded-xl print:border print:bg-transparent print:p-3"
+            >
+              <button
+                type="button"
+                onClick={() => handleReaderJump(section.id)}
+                className="reader-toc-link pressable group mb-2 flex w-full items-center justify-between text-left"
+              >
+                <span className="text-sm font-semibold text-foreground">
+                  {section.title}
+                </span>
+                <ChevronRight className="print-hidden h-4 w-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-0.5 group-hover:text-foreground dark:text-[#A0A6AE] dark:group-hover:text-white" />
+              </button>
+              {section.items.length > 0 && (
+                <div className="space-y-1.5">
+                  {section.items.map((item) => (
+                    <button
+                      key={item.id}
+                      type="button"
+                      onClick={() => handleReaderJump(section.id, item.id)}
+                      className="reader-toc-link pressable block w-full text-left text-[0.8rem] leading-5 text-muted-foreground transition-colors hover:text-foreground dark:text-[#A0A6AE] dark:hover:text-white"
+                    >
+                      {item.title}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="reader-mode-nav print-hidden mb-10 rounded-2xl border border-border/50 bg-card/60 p-4 backdrop-blur-sm dark:border-[#39434F] dark:bg-[#1B232D]">
+        <h2 className="manual-copy mb-3 text-sm font-semibold">
+          {copy.sectionNav}
+        </h2>
+        <div className="grid gap-2 sm:grid-cols-2 xl:grid-cols-3">
+          {docsData.map((section) => (
+            <button
+              key={section.id}
+              type="button"
+              onClick={() => handleReaderJump(section.id)}
+              className="pressable group flex items-center justify-between rounded-xl border border-border/50 bg-background px-3 py-2.5 text-left transition-all hover:border-primary/50 dark:border-[#39434F] dark:bg-[#060C13] dark:hover:border-[#1B6E87]"
+            >
+              <span className="manual-copy text-sm font-medium">
+                {section.title}
+              </span>
+              <ChevronRight className="h-4 w-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-0.5 group-hover:text-foreground dark:text-[#A0A6AE] dark:group-hover:text-white" />
+            </button>
+          ))}
+        </div>
+      </section>
+
+      <div className="space-y-10 print:space-y-8">
+        {docsData.map((section) => (
+          <section
+            key={section.id}
+            id={`reader-${section.id}`}
+            className="reader-section scroll-mt-24 border-b border-border/35 pb-10 last:border-b-0 last:pb-0 dark:border-[#39434F]/45 print:border-b-0 print:pb-0"
+          >
+            <header className="mb-8">
+              <h2 className="mb-3 text-2xl font-bold tracking-tight text-foreground lg:text-3xl">
+                {section.title}
+              </h2>
+              {section.description && (
+                <p className="manual-copy max-w-3xl text-[0.9rem] leading-7 sm:text-[0.95rem]">
+                  {section.description}
+                </p>
+              )}
+            </header>
+
+            <div className="space-y-8 print:space-y-6">
+              {section.items.map((item) => (
+                <section key={item.id} id={item.id} className="reader-item scroll-mt-24 print:break-inside-avoid-page">
+                  <h3 className="mb-4 text-xl font-semibold tracking-tight text-foreground lg:text-2xl">
+                    {item.title}
+                  </h3>
+                  <div>{renderContent(item.content, handleReaderJump)}</div>
+
+                  {item.children && item.children.length > 0 && (
+                    <div className="mt-8 space-y-8 border-t border-border/25 pt-8 dark:border-[#39434F]/35 print:space-y-6">
+                      {item.children.map((child) => (
+                        <section key={child.id} id={child.id} className="reader-child scroll-mt-24 print:break-inside-avoid-page">
+                          <h4 className="mb-3 text-base font-semibold text-foreground lg:text-lg">
+                            {child.title}
+                          </h4>
+                          <div>{renderContent(child.content, handleReaderJump)}</div>
+                        </section>
+                      ))}
+                    </div>
+                  )}
+                </section>
+              ))}
+            </div>
+          </section>
+        ))}
+      </div>
+    </article>
+  )
+}
+
 // ── Main export ───────────────────────────────────────────────────────────────
-export function DocsContent({ activeSection, activeItemId, onNavigate, language, docsDataByLanguage }: DocsContentProps) {
+export function DocsContent({
+  activeSection,
+  activeItemId,
+  onNavigate,
+  language,
+  docsDataByLanguage,
+  readerMode = false,
+}: DocsContentProps) {
   const containerRef = useRef<HTMLDivElement>(null)
   const [showBackToTop, setShowBackToTop] = useState(false)
   const docsData = docsDataByLanguage[language]
@@ -576,6 +755,8 @@ export function DocsContent({ activeSection, activeItemId, onNavigate, language,
 
   // Scroll to top for normal pages, or scroll to the inline child anchor when present.
   useEffect(() => {
+    if (readerMode) return
+
     if (activeChildId) {
       requestAnimationFrame(() => {
         document.getElementById(activeChildId)?.scrollIntoView({ behavior: "smooth", block: "start" })
@@ -588,6 +769,8 @@ export function DocsContent({ activeSection, activeItemId, onNavigate, language,
 
   // Back-to-top visibility
   useEffect(() => {
+    if (readerMode) return
+
     const el = containerRef.current
     if (!el) return
     const onScroll = () => setShowBackToTop(el.scrollTop > 300)
@@ -597,11 +780,20 @@ export function DocsContent({ activeSection, activeItemId, onNavigate, language,
 
   return (
     <div className="relative flex-1 overflow-hidden">
-      <div ref={containerRef} className="h-full overflow-y-auto scrollbar-thin">
-        <div className="mx-auto max-w-3xl px-6 py-8 lg:px-8 lg:py-12">
+      <div
+        ref={containerRef}
+        className={cn(
+          readerMode ? "overflow-visible" : "h-full overflow-y-auto scrollbar-thin"
+        )}
+      >
+        <div className={cn(readerMode ? "" : "mx-auto max-w-3xl px-6 py-8 lg:px-8 lg:py-12")}>
+
+          {readerMode && (
+            <ReaderModePage docsData={docsData} language={language} />
+          )}
 
           {/* Quick-start landing (section page, no item selected) */}
-          {currentSection && activeSection === 'quick-start' && !activeItemId && (
+          {!readerMode && currentSection && activeSection === 'quick-start' && !activeItemId && (
             <QuickStartLanding
               section={currentSection}
               onNavigate={onNavigate}
@@ -611,12 +803,12 @@ export function DocsContent({ activeSection, activeItemId, onNavigate, language,
           )}
 
           {/* Section overview when no item is selected */}
-          {currentSection && !activeItemId && activeSection !== 'quick-start' && (
+          {!readerMode && currentSection && !activeItemId && activeSection !== 'quick-start' && (
             <SectionOverview section={currentSection} onNavigate={onNavigate} language={language} />
           )}
 
           {/* Item page */}
-          {currentSection && activeEntry && (
+          {!readerMode && currentSection && activeEntry && (
             <ItemPage
               entry={activeEntry}
               activeChildId={activeChildId}
@@ -634,7 +826,7 @@ export function DocsContent({ activeSection, activeItemId, onNavigate, language,
         variant="outline"
         size="icon"
         className={cn(
-          "fixed bottom-6 right-6 z-50 rounded-full shadow-lg transition-all duration-300 lg:bottom-8 lg:right-8",
+          "print-hidden fixed bottom-6 right-6 z-50 rounded-full shadow-lg transition-all duration-300 lg:bottom-8 lg:right-8",
           showBackToTop ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
         )}
         onClick={() => containerRef.current?.scrollTo({ top: 0, behavior: 'smooth' })}

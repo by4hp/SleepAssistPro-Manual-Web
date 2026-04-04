@@ -1,20 +1,17 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { ChevronRight, Moon, Search, Sun } from "lucide-react"
+import { ChevronRight, Search } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Input } from "@/components/ui/input"
 import type { DocItem, DocSection, Language } from "@/lib/docs-data"
 import type { DocsDataByLanguage } from "@/lib/manual-content.types"
-import { Button } from "@/components/ui/button"
 import { DocsLanguageMenu } from "@/components/docs/docs-language-menu"
 
 interface DocsSidebarProps {
   activeSection: string
   activeItemId: string
   onNavigate: (sectionId: string, itemId?: string) => void
-  isDark?: boolean
-  onToggleTheme?: () => void
   language?: Language
   onSelectLanguage?: (language: Language) => void
   mobileOpen?: boolean
@@ -44,9 +41,7 @@ function SidebarContent({
   activeSection,
   activeItemId,
   onNavigate,
-  isDark,
-  onToggleTheme,
-  language = "zh",
+  language = "en",
   onSelectLanguage,
   onClose,
   isMobile = false,
@@ -59,13 +54,11 @@ function SidebarContent({
   const copy = language === "zh"
     ? {
         enterChapter: "进入本章",
-        toggleTheme: "切换主题",
         search: "搜索文档...",
         noResults: "未找到相关内容",
       }
     : {
         enterChapter: "Open chapter",
-        toggleTheme: "Toggle theme",
         search: "Search docs...",
         noResults: "No results found",
       }
@@ -290,26 +283,15 @@ function SidebarContent({
             {language === "zh" ? "版本 1.0.0" : "Version 1.0.0"} · © 2026 Sleep Assist® Pro
           </p>
           {isMobile && (
-            <div className="flex items-center gap-2">
-              <DocsLanguageMenu
-                language={language}
-                uiLanguage={language}
-                onSelectLanguage={(nextLanguage) => onSelectLanguage?.(nextLanguage)}
-                onAfterSelect={onClose}
-                variant="ghost"
-                size="sm"
-                className="px-2"
-              />
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={onToggleTheme}
-                className="h-9 w-9"
-                aria-label={copy.toggleTheme}
-              >
-                {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-              </Button>
-            </div>
+            <DocsLanguageMenu
+              language={language}
+              uiLanguage={language}
+              onSelectLanguage={(nextLanguage) => onSelectLanguage?.(nextLanguage)}
+              onAfterSelect={onClose}
+              variant="ghost"
+              size="sm"
+              className="px-2"
+            />
           )}
         </div>
       </div>

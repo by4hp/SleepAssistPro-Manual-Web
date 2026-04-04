@@ -1,7 +1,7 @@
 "use client"
 
 import { Fragment, useEffect, useState } from "react"
-import { Search, Moon, Sun, Menu, X } from "lucide-react"
+import { Search, Menu, X, ScrollText } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import {
@@ -18,13 +18,13 @@ import { DocsLanguageMenu } from "@/components/docs/docs-language-menu"
 
 interface DocsHeaderProps {
   onNavigate: (sectionId: string, itemId?: string) => void
-  isDark: boolean
-  onToggleTheme: () => void
   language: Language
   onSelectLanguage: (language: Language) => void
   mobileMenuOpen?: boolean
   onToggleMobileMenu?: () => void
   docsDataByLanguage: DocsDataByLanguage
+  isReaderMode?: boolean
+  onToggleReaderMode: () => void
 }
 
 interface SearchResult {
@@ -91,13 +91,13 @@ function highlightMatch(text: string, query: string) {
 
 export function DocsHeader({
   onNavigate,
-  isDark,
-  onToggleTheme,
   language,
   onSelectLanguage,
   mobileMenuOpen,
   onToggleMobileMenu,
   docsDataByLanguage,
+  isReaderMode = false,
+  onToggleReaderMode,
 }: DocsHeaderProps) {
   const [searchOpen, setSearchOpen] = useState(false)
   const [searchQuery, setSearchQuery] = useState("")
@@ -113,7 +113,8 @@ export function DocsHeader({
         searchDescription: "搜索 Sleep Assist® Pro 用户文档的所有内容",
         noResults: "未找到相关内容",
         quickJump: "快速跳转",
-        toggleTheme: "切换主题",
+        readerMode: "长页阅读",
+        defaultMode: "默认阅读",
       }
     : {
         manual: "User Manual",
@@ -124,7 +125,8 @@ export function DocsHeader({
         searchDescription: "Search across the Sleep Assist® Pro user manual",
         noResults: "No results found",
         quickJump: "Quick jump",
-        toggleTheme: "Toggle theme",
+        readerMode: "Reader mode",
+        defaultMode: "Default view",
       }
 
   useEffect(() => {
@@ -213,7 +215,7 @@ export function DocsHeader({
   }
 
   return (
-    <header className="sticky top-0 z-40 bg-background/80 backdrop-blur-sm dark:bg-[#060C13]">
+    <header className="site-chrome sticky top-0 z-40 bg-background/80 backdrop-blur-sm dark:bg-[#060C13]">
       <div aria-hidden="true" className="h-[env(safe-area-inset-top)] lg:hidden" />
 
       {/* Mobile Header */}
@@ -230,19 +232,32 @@ export function DocsHeader({
           />
           <span className="text-xs text-muted-foreground">{copy.manual}</span>
         </button>
-        <Button
-          variant="ghost"
-          size="icon"
-          onClick={onToggleMobileMenu}
-          className="h-9 w-9"
-        >
-          {mobileMenuOpen ? (
-            <X className="h-5 w-5" />
-          ) : (
-            <Menu className="h-5 w-5" />
+        <div className="flex items-center gap-1">
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={onToggleReaderMode}
+            className="h-9 w-9"
+          >
+            <ScrollText className="h-4 w-4" />
+            <span className="sr-only">{isReaderMode ? copy.defaultMode : copy.readerMode}</span>
+          </Button>
+          {!isReaderMode && (
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={onToggleMobileMenu}
+              className="h-9 w-9"
+            >
+              {mobileMenuOpen ? (
+                <X className="h-5 w-5" />
+              ) : (
+                <Menu className="h-5 w-5" />
+              )}
+              <span className="sr-only">{mobileMenuOpen ? copy.closeMenu : copy.openMenu}</span>
+            </Button>
           )}
-          <span className="sr-only">{mobileMenuOpen ? copy.closeMenu : copy.openMenu}</span>
-        </Button>
+        </div>
       </div>
 
       {/* Desktop Header */}
@@ -340,6 +355,15 @@ export function DocsHeader({
 
           {/* Actions */}
           <div className="flex items-center justify-self-end gap-2">
+            <Button
+              variant={isReaderMode ? "secondary" : "ghost"}
+              size="sm"
+              onClick={onToggleReaderMode}
+              className={isReaderMode ? "dark:bg-[#1B232D] dark:text-white dark:hover:bg-[#1B232D]" : ""}
+            >
+              <ScrollText className="h-4 w-4" />
+              <span>{isReaderMode ? copy.defaultMode : copy.readerMode}</span>
+            </Button>
             <DocsLanguageMenu
               language={language}
               uiLanguage={language}
@@ -347,19 +371,6 @@ export function DocsHeader({
               variant="ghost"
               size="sm"
             />
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={onToggleTheme}
-              className="h-9 w-9"
-            >
-              {isDark ? (
-                <Sun className="h-4 w-4" />
-              ) : (
-                <Moon className="h-4 w-4" />
-              )}
-              <span className="sr-only">{copy.toggleTheme}</span>
-            </Button>
           </div>
         </div>
       </div>

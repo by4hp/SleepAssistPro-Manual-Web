@@ -11,11 +11,9 @@ import type { DocsDataByLanguage } from "@/lib/manual-content.types"
 interface DocsPageClientProps {
   docsDataByLanguage: DocsDataByLanguage
   initialLanguage: Language
-  initialTheme: "light" | "dark"
 }
 
 const LANGUAGE_STORAGE_KEY = "sleepassistpro-language"
-const THEME_STORAGE_KEY = "sleepassistpro-theme"
 
 function persistPreference(key: string, value: string) {
   window.localStorage.setItem(key, value)
@@ -25,13 +23,12 @@ function persistPreference(key: string, value: string) {
 export function DocsPageClient({
   docsDataByLanguage,
   initialLanguage,
-  initialTheme,
 }: DocsPageClientProps) {
   const [activeSection, setActiveSection] = useState("quick-start")
   const [activeItemId, setActiveItemId] = useState("")
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [language, setLanguage] = useState<Language>(initialLanguage)
-  const [isDark, setIsDark] = useState(initialTheme === "dark")
+  const [isReaderMode, setIsReaderMode] = useState(false)
   const [preferencesHydrated, setPreferencesHydrated] = useState(false)
 
   useEffect(() => {
@@ -41,16 +38,9 @@ export function DocsPageClient({
       nextLanguage = savedLanguage
     }
 
-    const savedTheme = window.localStorage.getItem(THEME_STORAGE_KEY)
-    let nextIsDark = initialTheme === "dark"
-    if (savedTheme === "light" || savedTheme === "dark") {
-      nextIsDark = savedTheme === "dark"
-    }
-
     setLanguage(nextLanguage)
-    setIsDark(nextIsDark)
     setPreferencesHydrated(true)
-  }, [initialLanguage, initialTheme])
+  }, [initialLanguage])
 
   useEffect(() => {
     if (!preferencesHydrated) return
@@ -58,70 +48,81 @@ export function DocsPageClient({
     persistPreference(LANGUAGE_STORAGE_KEY, language)
   }, [language, preferencesHydrated])
 
-  useEffect(() => {
-    if (!preferencesHydrated) return
-    document.documentElement.classList.toggle("dark", isDark)
-    document.documentElement.style.colorScheme = isDark ? "dark" : "light"
-    persistPreference(THEME_STORAGE_KEY, isDark ? "dark" : "light")
-  }, [isDark, preferencesHydrated])
-
   const handleNavigate = (sectionId: string, itemId?: string) => {
     setActiveSection(sectionId)
     setActiveItemId(itemId || "")
-  }
-
-  const handleToggleTheme = () => {
-    setIsDark((current) => !current)
   }
 
   const handleSelectLanguage = (nextLanguage: Language) => {
     setLanguage(nextLanguage)
   }
 
+  const handleToggleReaderMode = () => {
+    setIsReaderMode((current) => !current)
+    setMobileMenuOpen(false)
+  }
+
   return (
-    <div className="flex h-[100dvh] min-h-[100dvh] flex-col overflow-hidden bg-background">
+    <div
+      className={
+        isReaderMode
+          ? "min-h-[100dvh] bg-background"
+          : "flex h-[100dvh] min-h-[100dvh] flex-col overflow-hidden bg-background"
+      }
+    >
       <DocsHeader
         onNavigate={handleNavigate}
-        isDark={isDark}
-        onToggleTheme={handleToggleTheme}
         language={language}
         onSelectLanguage={handleSelectLanguage}
         mobileMenuOpen={mobileMenuOpen}
         onToggleMobileMenu={() => setMobileMenuOpen((open) => !open)}
         docsDataByLanguage={docsDataByLanguage}
+        isReaderMode={isReaderMode}
+        onToggleReaderMode={handleToggleReaderMode}
       />
 
-      <div className="relative flex flex-1 overflow-hidden">
-        <DocsSidebar
-          activeSection={activeSection}
-          activeItemId={activeItemId}
-          onNavigate={handleNavigate}
-          isDark={isDark}
-          onToggleTheme={handleToggleTheme}
-          language={language}
-          onSelectLanguage={handleSelectLanguage}
-          mobileOpen={mobileMenuOpen}
-          onMobileOpenChange={setMobileMenuOpen}
-          docsDataByLanguage={docsDataByLanguage}
-        />
-
-        <main className="flex flex-1 overflow-hidden">
+      {isReaderMode ? (
+        <main className="reader-print-shell mx-auto w-full max-w-5xl px-4 pb-16 pt-6 sm:px-6 lg:px-8 lg:pt-10">
           <DocsContent
             activeSection={activeSection}
             activeItemId={activeItemId}
             onNavigate={handleNavigate}
             language={language}
             docsDataByLanguage={docsDataByLanguage}
+            readerMode
           />
-          <DocsToc
+        </main>
+      ) : (
+        <div className="relative flex flex-1 overflow-hidden">
+          <DocsSidebar
             activeSection={activeSection}
             activeItemId={activeItemId}
             onNavigate={handleNavigate}
             language={language}
+            onSelectLanguage={handleSelectLanguage}
+            mobileOpen={mobileMenuOpen}
+            onMobileOpenChange={setMobileMenuOpen}
             docsDataByLanguage={docsDataByLanguage}
           />
-        </main>
-      </div>
+
+          <main className="flex flex-1 overflow-hidden">
+            <DocsContent
+              activeSection={activeSection}
+              activeItemId={activeItemId}
+              onNavigate={handleNavigate}
+              language={language}
+              docsDataByLanguage={docsDataByLanguage}
+            />
+            <DocsToc
+              activeSection={activeSection}
+              activeItemId={activeItemId}
+              onNavigate={handleNavigate}
+              language={language}
+              docsDataByLanguage={docsDataByLanguage}
+            />
+          </main>
+        </div>
+      )}
     </div>
   )
 }

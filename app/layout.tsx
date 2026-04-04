@@ -31,16 +31,14 @@ export default async function RootLayout({
   children: React.ReactNode
 }>) {
   const cookieStore = await cookies()
-  const themeCookie = cookieStore.get('sleepassistpro-theme')?.value
   const languageCookie = cookieStore.get('sleepassistpro-language')?.value
-  const isDark = themeCookie !== 'light'
-  const htmlLanguage = languageCookie === 'en' ? 'en' : 'zh'
+  const htmlLanguage = languageCookie === 'zh' ? 'zh' : 'en'
 
   return (
     <html
       lang={htmlLanguage}
-      className={isDark ? 'dark' : undefined}
-      style={{ colorScheme: isDark ? 'dark' : 'light' }}
+      className="dark"
+      style={{ colorScheme: 'dark' }}
     >
       <body className="font-sans antialiased">
         {children}
