@@ -98,7 +98,7 @@ function renderImageCard({
         src={resolvedSrc}
         alt={alt}
         className={cn(
-          "mx-auto h-auto w-full object-contain",
+          "mx-auto h-auto w-full rounded-lg object-contain",
           compact
             ? "max-w-[16rem] sm:max-w-[18rem] lg:max-w-full"
             : "max-w-[16rem] sm:max-w-[18rem] lg:max-w-[30%]"
