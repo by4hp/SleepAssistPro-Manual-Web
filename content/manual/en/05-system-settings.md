@@ -122,7 +122,7 @@ Want to share your sleep habits, lifestyle, and preferences? Add them here. The 
 
 ### 5.5 Health Data Integration {#apple-health}
 
-Want to sync Sleep Assist® Pro data to your phone's health platform? Turn on the matching integration here. Currently supported: Apple Health Integration on iPhone, plus Health Connect and Samsung Health Integration on Android. Turning off an integration only stops future syncing — historical data already written stays intact.
+Want to sync Sleep Assist® data to your phone's health platform? Turn on the matching integration here. Currently supported: Apple Health Integration on iPhone, plus Health Connect and Samsung Health Integration on Android. Turning off an integration only stops future syncing — historical data already written stays intact.
 
 #### 5.5.1 iPhone: Apple Health Integration {#apple-health-ios}
 

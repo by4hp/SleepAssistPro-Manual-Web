@@ -4,8 +4,8 @@ import { cookies } from 'next/headers'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'UserManual-Sleep-Assist-Pro',
-  description: 'Sleep Assist® Pro 智能床应用用户手册 - 快速开始、连接设置、功能使用指南',
+  title: 'UserManual-Sleep-Assist',
+  description: 'Sleep Assist® 智能床应用用户手册 - 快速开始、连接设置、功能使用指南',
   generator: 'v0.app',
   icons: {
     icon: [

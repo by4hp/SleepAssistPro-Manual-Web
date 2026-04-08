@@ -280,7 +280,7 @@ function SidebarContent({
       <div className="shrink-0 px-4 py-3">
         <div className="flex items-center justify-between gap-3">
           <p className="text-xs text-muted-foreground">
-            {language === "zh" ? "版本 1.0.0" : "Version 1.0.0"} · © 2026 Sleep Assist® Pro
+            {language === "zh" ? "版本 1.0.0" : "Version 1.0.0"} · © 2026 Sleep Assist®
           </p>
           {isMobile && (
             <DocsLanguageMenu
