@@ -1,6 +1,6 @@
 # 1. 快速开始 {#quick-start}
 
-刚开始用 Sleep Assist®？这一章帮您快速完成下载、连床和进入首页，几分钟就能上手。
+刚开始用 Sleep Assist？这一章帮您快速完成下载、连床和进入首页，几分钟就能上手。
 
 ### 1.1 下载与安装 App {#download-install}
 
@@ -8,13 +8,13 @@
 
 #### 1.1.1 在 iOS 下载 {#download-ios}
 
-打开 iOS App Store，搜索 Sleep Assist®，下载并安装。
+打开 iOS App Store，搜索 Sleep Assist，下载并安装。
 
 {{download-button|iOS|在 App Store 下载|适用于 iPhone 和 iPad，下载后按提示完成安装。}}
 
 #### 1.1.2 在 Android 下载 {#download-android}
 
-打开 Google Play，搜索 Sleep Assist®，下载并安装。
+打开 Google Play，搜索 Sleep Assist，下载并安装。
 
 {{download-button|Android|在 Google Play 下载|适用于 Android 设备，下载后按提示完成安装。}}
 

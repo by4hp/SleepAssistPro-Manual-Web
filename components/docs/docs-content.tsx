@@ -317,12 +317,12 @@ function QuickStartLanding({
 
       <section className="mb-10">
         <h2 className="mb-3 text-xl font-semibold text-foreground">
-          {language === "zh" ? "欢迎使用 Sleep Assist®" : "Welcome to Sleep Assist®"}
+          {language === "zh" ? "欢迎使用 Sleep Assist" : "Welcome to Sleep Assist"}
         </h2>
         <p className="manual-copy max-w-2xl text-[0.82rem] leading-6 sm:text-[0.88rem] sm:leading-7">
           {language === "zh"
             ? "这是一份适用于 Ergomotion 智能床 App 的使用手册，可以帮助您下载和安装 App、连接智能床、注册或登录账号、了解常用功能，并在遇到问题时快速找到排查方法。第一次使用时，建议按章节顺序阅读；日常使用中如果遇到具体问题，也可以直接跳到对应章节查看。"
-            : "This manual is designed for both first-time and everyday Sleep Assist® users. If you are new, reading in order is the easiest path. If you run into a problem, you can also jump straight to the chapter that matches it."}
+            : "This manual is designed for both first-time and everyday Sleep Assist users. If you are new, reading in order is the easiest path. If you run into a problem, you can also jump straight to the chapter that matches it."}
         </p>
       </section>
 
@@ -572,7 +572,7 @@ function ReaderModePage({
 }) {
   const copy = language === "zh"
     ? {
-        title: "Sleep Assist® 用户手册",
+        title: "Sleep Assist 用户手册",
         subtitle: "长网页阅读模式",
         description:
           "这里会把整份手册按章节串成一页，适合连续阅读、校对文案，或直接导出为 PDF。",
@@ -582,7 +582,7 @@ function ReaderModePage({
         chapterCount: `${docsData.length} 个章节`,
       }
     : {
-        title: "Sleep Assist® User Manual",
+        title: "Sleep Assist User Manual",
         subtitle: "Reader Mode",
         description:
           "This mode lays out the full manual as one continuous page for long-form reading, copy review, or PDF export.",
@@ -611,7 +611,7 @@ function ReaderModePage({
         </p>
         <div className="mt-6 flex flex-wrap gap-2 print:mt-8">
           <span className="rounded-full border border-border/60 bg-background/70 px-3 py-1 text-xs font-medium text-muted-foreground dark:border-[#39434F] dark:bg-[#060C13]">
-            Sleep Assist®
+            Sleep Assist
           </span>
           <span className="rounded-full border border-border/60 bg-background/70 px-3 py-1 text-xs font-medium text-muted-foreground dark:border-[#39434F] dark:bg-[#060C13]">
             {copy.version}

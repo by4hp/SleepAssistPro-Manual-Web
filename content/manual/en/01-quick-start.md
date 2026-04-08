@@ -1,6 +1,6 @@
 # 1. Quick Start {#quick-start}
 
-New to Sleep Assist®? This chapter helps you download the app, connect your bed, and get to the home screen — all in a few minutes.
+New to Sleep Assist? This chapter helps you download the app, connect your bed, and get to the home screen — all in a few minutes.
 
 ### 1.1 Download & Install the App {#download-install}
 
@@ -8,13 +8,13 @@ Pick the download option for your phone, then you're good to go once it's instal
 
 #### 1.1.1 Download on iOS {#download-ios}
 
-Open the iOS App Store, search for Sleep Assist®, and download it.
+Open the iOS App Store, search for Sleep Assist, and download it.
 
 {{download-button|iOS|Download on the App Store|For iPhone and iPad. Follow the on-screen prompts to complete installation.}}
 
 #### 1.1.2 Download on Android {#download-android}
 
-Open Google Play, search for Sleep Assist®, and download it.
+Open Google Play, search for Sleep Assist, and download it.
 
 {{download-button|Android|Download on Google Play|For Android devices. Follow the on-screen prompts to complete installation.}}
 

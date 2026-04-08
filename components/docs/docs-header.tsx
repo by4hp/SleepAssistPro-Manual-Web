@@ -110,7 +110,7 @@ export function DocsHeader({
         closeMenu: "关闭菜单",
         search: "搜索文档...",
         searchTitle: "搜索文档",
-        searchDescription: "搜索 Sleep Assist® 用户文档的所有内容",
+        searchDescription: "搜索 Sleep Assist 用户文档的所有内容",
         noResults: "未找到相关内容",
         quickJump: "快速跳转",
         readerMode: "长页阅读",
@@ -122,7 +122,7 @@ export function DocsHeader({
         closeMenu: "Close menu",
         search: "Search docs...",
         searchTitle: "Search docs",
-        searchDescription: "Search across the Sleep Assist® user manual",
+        searchDescription: "Search across the Sleep Assist user manual",
         noResults: "No results found",
         quickJump: "Quick jump",
         readerMode: "Reader mode",
@@ -227,7 +227,7 @@ export function DocsHeader({
         >
           <img
             src="/sleepassistpro-logo.svg"
-            alt="Sleep Assist®"
+            alt="Sleep Assist"
             className="h-8 w-8 shrink-0 rounded-lg"
           />
           <span className="text-xs text-muted-foreground">{copy.manual}</span>
@@ -270,11 +270,11 @@ export function DocsHeader({
         >
           <img
             src="/sleepassistpro-logo.svg"
-            alt="Sleep Assist®"
+            alt="Sleep Assist"
             className="h-9 w-9 shrink-0 rounded-xl shadow-sm"
           />
           <div className="flex flex-col">
-            <span className="text-sm font-semibold text-foreground">Sleep Assist®</span>
+            <span className="text-sm font-semibold text-foreground">Sleep Assist</span>
             <span className="text-xs text-muted-foreground">{copy.manual}</span>
           </div>
         </button>
